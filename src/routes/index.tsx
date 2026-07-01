@@ -141,6 +141,20 @@ function Manual() {
   const toggle = (id: string) =>
     setCompleted((c) => ({ ...c, [id]: !c[id] }));
 
+  const [aceito, setAceito] = useState(() => {
+    try {
+      return localStorage.getItem("mesa.salvacao.aceito") === "true";
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("mesa.salvacao.aceito", String(aceito));
+    } catch {}
+  }, [aceito]);
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
