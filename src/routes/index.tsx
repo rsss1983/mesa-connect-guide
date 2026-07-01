@@ -269,6 +269,21 @@ function Manual() {
                       </div>
                     )}
 
+                    {step.id === "salvacao" && (
+                      <div className="mt-8 flex justify-center">
+                        <button
+                          onClick={() => setAceito((a) => !a)}
+                          className={`inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-semibold text-white transition-all duration-500 ${
+                            aceito
+                              ? "bg-emerald-700 hover:bg-emerald-600"
+                              : "bg-red-700 hover:bg-red-600"
+                          }`}
+                        >
+                          {aceito ? "Filho de Deus" : "Aceito"}
+                        </button>
+                      </div>
+                    )}
+
                     <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
                       <button
                         onClick={() => toggle(step.id)}
