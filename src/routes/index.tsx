@@ -270,7 +270,7 @@ function Manual() {
                     )}
 
                     {step.id === "salvacao" && (
-                      <div className="mt-8 flex justify-center">
+                      <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
                         <button
                           onClick={() => setAceito((a) => !a)}
                           className={`inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-semibold text-white transition-all duration-500 ${
@@ -281,6 +281,16 @@ function Manual() {
                         >
                           {aceito ? "Filho de Deus" : "Aceito"}
                         </button>
+                        {aceito && (
+                          <a
+                            href="https://ebook-to-interactive-wbcc.bolt.host"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-semibold text-primary-foreground transition-all duration-500 bg-gold hover:bg-gold-soft"
+                          >
+                            Primeiros Passos
+                          </a>
+                        )}
                       </div>
                     )}
 
