@@ -396,18 +396,35 @@ function HubCard({
   title,
   detail,
   cta,
+  href,
 }: {
   title: string;
   detail: string;
   cta: string;
+  href?: string;
 }) {
-  return (
-    <div className="group rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40">
+  const content = (
+    <>
       <h3 className="font-serif text-xl text-foreground">{title}</h3>
       <p className="mt-1 text-sm text-muted-foreground">{detail}</p>
       <p className="mt-4 inline-flex items-center gap-1 text-sm text-gold group-hover:text-gold-soft">
         {cta} <span aria-hidden>→</span>
       </p>
+    </>
+  );
+
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40"
+    >
+      {content}
+    </a>
+  ) : (
+    <div className="group rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40">
+      {content}
     </div>
   );
 }
