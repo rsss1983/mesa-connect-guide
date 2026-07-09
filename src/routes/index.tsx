@@ -329,6 +329,18 @@ function Manual() {
                       </div>
                     )}
 
+                    {step.id === "trilhas" && (
+                      <TrilhasBlock
+                        trilha={trilha}
+                        setTrilha={(t) => {
+                          setTrilha(t);
+                          setFamiliaSub(null);
+                        }}
+                        familiaSub={familiaSub}
+                        setFamiliaSub={setFamiliaSub}
+                      />
+                    )}
+
                     <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
                       <button
                         onClick={() => toggle(step.id)}
