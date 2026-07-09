@@ -108,7 +108,7 @@ const STEPS: Step[] = [
     subtitle: "Escolha a sua trilha e caminhe com propósito.",
     body: [
       "As trilhas de discipulado da MESA são caminhos práticos para amadurecer em áreas específicas da sua vida.",
-      "Comece pela trilha principal e, conforme avança, escolha as trilhas que dialogam com o seu momento — família, relacionamentos, trabalho e propósito.",
+      "Escolha as trilhas que dialogam com o seu momento — família, relacionamentos, trabalho e propósito.",
       "Clique em uma trilha abaixo para explorar os caminhos disponíveis.",
     ],
   },
@@ -484,7 +484,6 @@ function TrilhasBlock({
   setFamiliaSub: (s: string | null) => void;
 }) {
   const trilhas = [
-    "Trilha Principal",
     "Família",
     "Inteligência Relacional Bíblica",
     "Empresário Cristão",
