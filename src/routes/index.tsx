@@ -102,14 +102,14 @@ const STEPS: Step[] = [
     },
   },
   {
-    id: "conclusao",
-    chapter: "Conclusão",
-    title: "Ainda Há Lugar",
-    subtitle: "A sua cadeira está reservada.",
+    id: "trilhas",
+    chapter: "Capítulo 6",
+    title: "Trilhas de Discipulado",
+    subtitle: "Escolha a sua trilha e caminhe com propósito.",
     body: [
-      "O banquete está pronto, a madeira da mesa está fixada e a luz da graça está acesa.",
-      "O coração do Pai não rejeita apenas o pecado ou o vácuo — Ele rejeita a cadeira vazia.",
-      "Se você compreendeu a Salvação, deseja obedecer no Batismo, quer partilhar do pão na Ceia e está pronto para servir como voluntário de propósito: seja oficialmente muito bem-vindo. Puxe a cadeira e assente-se conosco. Porque na MESA, ainda há lugar.",
+      "As trilhas de discipulado da MESA são caminhos práticos para amadurecer em áreas específicas da sua vida.",
+      "Comece pela trilha principal e, conforme avança, escolha as trilhas que dialogam com o seu momento — família, relacionamentos, trabalho e propósito.",
+      "Clique em uma trilha abaixo para explorar os caminhos disponíveis.",
     ],
   },
 ];
