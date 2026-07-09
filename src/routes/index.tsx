@@ -484,7 +484,6 @@ function TrilhasBlock({
   setFamiliaSub: (s: string | null) => void;
 }) {
   const trilhas = [
-    "Trilha Principal",
     "Família",
     "Inteligência Relacional Bíblica",
     "Empresário Cristão",
