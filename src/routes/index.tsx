@@ -269,6 +269,38 @@ function Manual() {
                       </div>
                     )}
 
+                    {step.id === "batismo" && (
+                      <div className="mt-6 flex items-center justify-center">
+                        <a
+                          href="https://ebook-to-interactive-v1a9.bolt.host"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-semibold text-primary-foreground transition-all duration-500 bg-gold hover:bg-gold-soft"
+                        >
+                          Escola Bíblica Interativa
+                        </a>
+                      </div>
+                    )}
+
+                    {step.id === "voluntariado" && (
+                      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                        {[
+                          "Visão da Mesa",
+                          "Transparência Relacional",
+                          "Vida no Reino",
+                          "Formulário de Voluntário",
+                          "Treinamento de Anfitriões de Mesa",
+                        ].map((label) => (
+                          <button
+                            key={label}
+                            className="inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
+                          >
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
                     {step.id === "salvacao" && (
                       <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
                         <button
