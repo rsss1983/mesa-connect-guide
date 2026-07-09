@@ -365,14 +365,16 @@ function Manual() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <HubCard
-              title="Santa Ceia"
-              detail="Todo terceiro domingo do mês."
-              cta="Traga o seu pão"
+              title="Playlist do Próximo Culto"
+              detail="- Comece a entender o que vai ser cantado"
+              cta="Ouvir no Spotify"
+              href="https://open.spotify.com/playlist/2drJP3g3ZDDNjyg1XQOiUC?si=Rd9HuyszRNWCVl2AGk3IXw"
             />
             <HubCard
-              title="Voluntariado"
-              detail="Encontre a sua cadeira na engrenagem."
-              cta="Quero servir"
+              title="Drops Na Mesa"
+              detail="Encontre Resposta da sua Humanidade na Graça"
+              cta="Ouvir no Spotify"
+              href="https://open.spotify.com/show/5xxzWtFUAw4ADv4EZ3PH2b?si=e367fcb3d5a545cf"
             />
           </div>
         </section>
