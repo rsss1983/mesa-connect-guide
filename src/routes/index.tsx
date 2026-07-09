@@ -149,6 +149,9 @@ function Manual() {
     }
   });
 
+  const [trilha, setTrilha] = useState<string | null>(null);
+  const [familiaSub, setFamiliaSub] = useState<string | null>(null);
+
   useEffect(() => {
     try {
       localStorage.setItem("mesa.salvacao.aceito", String(aceito));
