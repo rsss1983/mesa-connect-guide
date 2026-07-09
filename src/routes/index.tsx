@@ -443,3 +443,108 @@ function HubCard({
     </div>
   );
 }
+
+function TrilhaBtn({
+  label,
+  active,
+  onClick,
+  variant = "default",
+}: {
+  label: string;
+  active?: boolean;
+  onClick: () => void;
+  variant?: "default" | "sub" | "leaf";
+}) {
+  const base =
+    "inline-flex items-center rounded-full px-5 py-2 text-sm font-medium transition";
+  const styles =
+    variant === "leaf"
+      ? "border border-gold-soft/40 bg-transparent text-gold-soft hover:bg-gold/10"
+      : variant === "sub"
+        ? "border border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
+        : active
+          ? "bg-gold text-primary-foreground"
+          : "border border-gold/40 bg-gold/5 text-gold hover:bg-gold/10";
+  return (
+    <button onClick={onClick} className={`${base} ${styles}`}>
+      {label}
+    </button>
+  );
+}
+
+function TrilhasBlock({
+  trilha,
+  setTrilha,
+  familiaSub,
+  setFamiliaSub,
+}: {
+  trilha: string | null;
+  setTrilha: (t: string | null) => void;
+  familiaSub: string | null;
+  setFamiliaSub: (s: string | null) => void;
+}) {
+  const trilhas = [
+    "Trilha Principal",
+    "Família",
+    "Inteligência Relacional Bíblica",
+    "Empresário Cristão",
+    "Profissional",
+  ];
+  const familiaOpts = ["Homem", "Mulher", "Filho"];
+  const subOpts: Record<string, string[]> = {
+    Homem: ["Pai", "Marido"],
+    Mulher: ["Mãe", "Esposa"],
+    Filho: ["Criança", "Jovem", "Jovem Adulto"],
+  };
+
+  return (
+    <div className="mt-8 space-y-5">
+      <div>
+        <p className="mb-3 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          Trilhas iniciais
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {trilhas.map((t) => (
+            <TrilhaBtn
+              key={t}
+              label={t}
+              active={trilha === t}
+              onClick={() => setTrilha(trilha === t ? null : t)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {trilha === "Família" && (
+        <div>
+          <p className="mb-3 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Família
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {familiaOpts.map((o) => (
+              <TrilhaBtn
+                key={o}
+                label={o}
+                variant="sub"
+                onClick={() => setFamiliaSub(familiaSub === o ? null : o)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {trilha === "Família" && familiaSub && (
+        <div>
+          <p className="mb-3 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            {familiaSub}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {subOpts[familiaSub].map((l) => (
+              <TrilhaBtn key={l} label={l} variant="leaf" onClick={() => {}} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
