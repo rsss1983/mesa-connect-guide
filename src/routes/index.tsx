@@ -68,7 +68,7 @@ const STEPS: Step[] = [
     ],
     action: {
       label: "Quero ser batizado",
-      note: "Fale com um líder da MESA para agendar o próximo batismo.",
+      note: "Fale com um líder da MESA para agendar o próximo batismo. Recomendamos o início do curso Escola Bíblica Interativa.",
     },
   },
   {
@@ -269,6 +269,38 @@ function Manual() {
                       </div>
                     )}
 
+                    {step.id === "batismo" && (
+                      <div className="mt-6 flex items-center justify-center">
+                        <a
+                          href="https://ebook-to-interactive-v1a9.bolt.host"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full px-8 py-3 text-base font-semibold text-primary-foreground transition-all duration-500 bg-gold hover:bg-gold-soft"
+                        >
+                          Escola Bíblica Interativa
+                        </a>
+                      </div>
+                    )}
+
+                    {step.id === "voluntariado" && (
+                      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                        {[
+                          "Visão da Mesa",
+                          "Transparência Relacional",
+                          "Vida no Reino",
+                          "Formulário de Voluntário",
+                          "Treinamento de Anfitriões de Mesa",
+                        ].map((label) => (
+                          <button
+                            key={label}
+                            className="inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
+                          >
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
                     {step.id === "salvacao" && (
                       <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
                         <button
@@ -333,14 +365,16 @@ function Manual() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <HubCard
-              title="Santa Ceia"
-              detail="Todo terceiro domingo do mês."
-              cta="Traga o seu pão"
+              title="Playlist do Próximo Culto"
+              detail="- Comece a entender o que vai ser cantado"
+              cta="Ouvir no Spotify"
+              href="https://open.spotify.com/playlist/2drJP3g3ZDDNjyg1XQOiUC?si=Rd9HuyszRNWCVl2AGk3IXw"
             />
             <HubCard
-              title="Voluntariado"
-              detail="Encontre a sua cadeira na engrenagem."
-              cta="Quero servir"
+              title="Drops Na Mesa"
+              detail="Encontre Resposta da sua Humanidade na Graça"
+              cta="Ouvir no Spotify"
+              href="https://open.spotify.com/show/5xxzWtFUAw4ADv4EZ3PH2b?si=e367fcb3d5a545cf"
             />
           </div>
         </section>
@@ -362,18 +396,35 @@ function HubCard({
   title,
   detail,
   cta,
+  href,
 }: {
   title: string;
   detail: string;
   cta: string;
+  href?: string;
 }) {
-  return (
-    <div className="group rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40">
+  const content = (
+    <>
       <h3 className="font-serif text-xl text-foreground">{title}</h3>
       <p className="mt-1 text-sm text-muted-foreground">{detail}</p>
       <p className="mt-4 inline-flex items-center gap-1 text-sm text-gold group-hover:text-gold-soft">
         {cta} <span aria-hidden>→</span>
       </p>
+    </>
+  );
+
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40"
+    >
+      {content}
+    </a>
+  ) : (
+    <div className="group rounded-2xl border border-border bg-card/50 p-5 transition hover:border-gold/40">
+      {content}
     </div>
   );
 }
