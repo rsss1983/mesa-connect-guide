@@ -68,7 +68,7 @@ const STEPS: Step[] = [
     ],
     action: {
       label: "Quero ser batizado",
-      note: "Fale com um líder da MESA para agendar o próximo batismo.",
+      note: "Fale com um líder da MESA para agendar o próximo batismo. Recomendamos o início do curso Escola Bíblica Interativa.",
     },
   },
   {
