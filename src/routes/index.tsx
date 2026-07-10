@@ -44,7 +44,7 @@ const STEPS: Step[] = [
     subtitle: "Puxe a sua cadeira e assuma o seu lugar.",
     body: [
       "1. A Base Profética: O Chamado para a Mesa (Lucas 14)",
-      "Nossa visão nasce no coração de Jesus em Lucas 14. Quando o convite para a grande ceia é feito, os convidados originais apresentam desculpas baseadas em seus bens, seus bois e seus casamentos. Mas o Mestre ordena: "Sai pelos caminhos e valados, e força-os a entrar, para que a minha casa se encha" (Lc 14:23).",
+      "Nossa visão nasce no coração de Jesus em Lucas 14. Quando o convite para a grande ceia é feito, os convidados originais apresentam desculpas baseadas em seus bens, seus bois e seus casamentos. Mas o Mestre ordena: \"Sai pelos caminhos e valados, e força-os a entrar, para que a minha casa se encha\" (Lc 14:23).",,
       "A MESA Church existe porque entendemos que o "lugar à mesa" não é para os que se sentem autossuficientes, mas para os "pobres, aleijados, cegos e coxos" — aqueles que, em São Paulo, reconhecem a sua falência e necessidade de Graça. Nós somos a igreja que não aceita o "não" da conveniência; nós forçamos o convite do Reino para que a nossa casa se encha de pessoas sendo curadas.",
       "2. Os Três Pilares do DNA",
       "I. Transparência Relacional",
