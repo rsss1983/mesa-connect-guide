@@ -100,7 +100,7 @@ const STEPS: Step[] = [
   {
     id: "voluntariado",
     chapter: "Capítulo 4",
-    title: "Voluntariado e Serviço",
+    title: "Servir Na Mesa",
     subtitle: "Igreja, Família e Propósito.",
     body: [
       "Ser membro da MESA é entender que você foi chamado para fazer parte, não apenas para assistir. Rejeitamos a cultura do espetáculo onde poucos trabalham no palco e muitos consomem na plateia.",
@@ -108,7 +108,7 @@ const STEPS: Step[] = [
       "Servir na MESA não é ativismo religioso nem agenda pesada para inflar estrutura. É proteção e utilidade no Reino — usar os dons do Espírito para edificar o irmão, acolher os novos e preservar a atmosfera de casa. Quando você serve, puxa mais uma cadeira para que outra pessoa se assente.",
     ],
     action: {
-      label: "Quero ser voluntário",
+      label: "Quero Ser Colaborador",
       note: "Conte com quais dons você chega. Encontramos o seu lugar na engrenagem.",
     },
   },
