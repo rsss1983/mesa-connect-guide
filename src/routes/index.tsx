@@ -29,12 +29,23 @@ const STEPS: Step[] = [
   {
     id: "manifesto",
     chapter: "Introdução",
-    title: "O Manifesto da Mesa",
+    title: "MESA CHURCH: IDENTIDADE E VISÃO",
     subtitle: "Desacelere o passo. Ninguém senta à mesa correndo.",
     body: [
-      "Em uma metrópole acelerada como São Paulo, é fácil se perder na multidão. A cultura nos condicionou a camuflar fraquezas, vestir máscaras de alta performance e medir nosso valor pela produtividade.",
-      "O sistema religioso muitas vezes copiou esse ritmo — templos viraram auditórios, cristãos viraram espectadores no “modo plateia”. Entra correndo, consome um show de palco no isolamento, e vai embora sozinho com seus fardos.",
-      "Na MESA Church, escolhemos o caminho inverso. A mesa exige mudança de postura, física e espiritual. Este manual não é um livro de regras — é um convite para você puxar a cadeira, deixar as máscaras caírem e entender o design original que o Pai preparou para a sua jornada.",
+      "1. A Base Profética: O Chamado para a Mesa (Lucas 14)",
+      "Nossa visão nasce no coração de Jesus em Lucas 14. Quando o convite para a grande ceia é feito, os convidados originais apresentam desculpas baseadas em seus bens, seus bois e seus casamentos. Mas o Mestre ordena: \"Sai pelos caminhos e valados, e força-os a entrar, para que a minha casa se encha\" (Lc 14:23).",
+      "A MESA Church existe porque entendemos que o \"lugar à mesa\" não é para os que se sentem autossuficientes, mas para os \"pobres, aleijados, cegos e coxos\" — aqueles que, em São Paulo, reconhecem a sua falência e necessidade de Graça. Nós somos a igreja que não aceita o \"não\" da conveniência; nós forçamos o convite do Reino para que a nossa casa se encha de pessoas sendo curadas.",
+      "2. Os Três Pilares do DNA",
+      "I. Transparência Relacional",
+      "Acreditamos que a cura acontece quando as máscaras caem. Em uma metrópole de alta performance e isolamento, a MESA é o refúgio onde a vulnerabilidade é o caminho para a conexão real. Não temos espaço para o fingimento religioso. Aqui, olhamos nos olhos, confessamos nossas lutas e combatemos a solidão através do vínculo genuíno. Ser conhecido é o primeiro passo para ser amado e curado.",
+      "II. Discipulado Vivo",
+      "O discipulado não é um curso; é a vida dividida no dia a dia. Combatemos a cultura do \"modo plateia\" — onde o cristão apenas assiste a um culto. Na MESA, o convite é para caminhar lado a lado, carregar fardos e imitar o ritmo de Jesus. Nosso discipulado acontece no partir do pão, na mentoria, no aconselhamento e na parceria de aliança, onde cada um assume seu lugar no corpo para cumprir a missão.",
+      "III. Vida no Reino",
+      "Viver o Reino é a arte da dependência radical. É abandonar a autossuficiência do próprio braço para se submeter ao governo de Jesus em todas as áreas — trabalho, família e emoções. Entendemos que a nossa produtividade não define o nosso valor. Somos um povo que governa o seu mundo interno pela razão e pela Palavra, protegendo o nosso foco para o \"Sonho Grande\" e vivendo de forma que o Reino de Deus se torne visível nas nossas escolhas cotidianas.",
+      "3. Manifesto da Casa",
+      "\"Puxe a sua cadeira e assuma o seu lugar.\"",
+      "Não somos uma plateia; somos parceiros de aliança. Na MESA Church, o protocolo é a transparência, o método é o discipulado e o alvo é o Reino. Se você está cansado de carregar fardos que não são seus e deseja viver um propósito que vai além do sucesso humano, esta casa é o seu destino.",
+      "Porque na MESA, ainda há lugar.",
     ],
   },
   {
@@ -89,7 +100,7 @@ const STEPS: Step[] = [
   {
     id: "voluntariado",
     chapter: "Capítulo 4",
-    title: "Voluntariado e Serviço",
+    title: "Servir Na Mesa",
     subtitle: "Igreja, Família e Propósito.",
     body: [
       "Ser membro da MESA é entender que você foi chamado para fazer parte, não apenas para assistir. Rejeitamos a cultura do espetáculo onde poucos trabalham no palco e muitos consomem na plateia.",
@@ -97,7 +108,7 @@ const STEPS: Step[] = [
       "Servir na MESA não é ativismo religioso nem agenda pesada para inflar estrutura. É proteção e utilidade no Reino — usar os dons do Espírito para edificar o irmão, acolher os novos e preservar a atmosfera de casa. Quando você serve, puxa mais uma cadeira para que outra pessoa se assente.",
     ],
     action: {
-      label: "Quero ser voluntário",
+      label: "Quero Ser Colaborador",
       note: "Conte com quais dons você chega. Encontramos o seu lugar na engrenagem.",
     },
   },
