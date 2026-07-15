@@ -474,11 +474,13 @@ function TrilhaBtn({
   active,
   onClick,
   variant = "default",
+  href,
 }: {
   label: string;
   active?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   variant?: "default" | "sub" | "leaf";
+  href?: string;
 }) {
   const base =
     "inline-flex items-center rounded-full px-5 py-2 text-sm font-medium transition";
@@ -490,6 +492,18 @@ function TrilhaBtn({
         : active
           ? "bg-gold text-primary-foreground"
           : "border border-gold/40 bg-gold/5 text-gold hover:bg-gold/10";
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${base} ${styles}`}
+      >
+        {label}
+      </a>
+    );
+  }
   return (
     <button onClick={onClick} className={`${base} ${styles}`}>
       {label}
