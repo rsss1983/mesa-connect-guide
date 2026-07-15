@@ -299,19 +299,33 @@ function Manual() {
                     {step.id === "voluntariado" && (
                       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                         {[
-                          "Visão da Mesa",
-                          "Transparência Relacional",
-                          "Vida no Reino",
-                          "Formulário de Voluntário",
-                          "Treinamento de Anfitriões de Mesa",
-                        ].map((label) => (
-                          <button
-                            key={label}
-                            className="inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
-                          >
-                            {label}
-                          </button>
-                        ))}
+                          { label: "Visão da Mesa" },
+                          { label: "Transparência Relacional" },
+                          {
+                            label: "Vida no Reino",
+                            href: "https://30-dias-com-deus-dev-boxd.bolt.host/",
+                          },
+                          { label: "Formulário de Voluntário" },
+                          { label: "Treinamento de Anfitriões de Mesa" },
+                        ].map(({ label, href }) => {
+                          const cls =
+                            "inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10";
+                          return href ? (
+                            <a
+                              key={label}
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={cls}
+                            >
+                              {label}
+                            </a>
+                          ) : (
+                            <button key={label} className={cls}>
+                              {label}
+                            </button>
+                          );
+                        })}
                       </div>
                     )}
 
