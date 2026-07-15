@@ -188,9 +188,9 @@ function Manual() {
             O seu lugar à Mesa
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Manual de Integração — Igreja, Família e Propósito. Puxe a cadeira,
-            deixe as máscaras caírem, e caminhe pelos passos que preparamos para
-            você.
+            Caminhando para A MESA — Igreja, Família e Propósito. Puxe a
+            cadeira, deixe as máscaras caírem, e caminhe pelos passos que
+            preparamos para você.
           </p>
 
           {/* Progress */}
