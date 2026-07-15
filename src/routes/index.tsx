@@ -188,9 +188,9 @@ function Manual() {
             O seu lugar à Mesa
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Manual de Integração — Igreja, Família e Propósito. Puxe a cadeira,
-            deixe as máscaras caírem, e caminhe pelos passos que preparamos para
-            você.
+            Caminhando para A MESA — Igreja, Família e Propósito. Puxe a
+            cadeira, deixe as máscaras caírem, e caminhe pelos passos que
+            preparamos para você.
           </p>
 
           {/* Progress */}
@@ -299,19 +299,33 @@ function Manual() {
                     {step.id === "voluntariado" && (
                       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                         {[
-                          "Visão da Mesa",
-                          "Transparência Relacional",
-                          "Vida no Reino",
-                          "Formulário de Voluntário",
-                          "Treinamento de Anfitriões de Mesa",
-                        ].map((label) => (
-                          <button
-                            key={label}
-                            className="inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
-                          >
-                            {label}
-                          </button>
-                        ))}
+                          { label: "Visão da Mesa" },
+                          { label: "Transparência Relacional" },
+                          {
+                            label: "Vida no Reino",
+                            href: "https://30-dias-com-deus-dev-boxd.bolt.host/",
+                          },
+                          { label: "Formulário de Voluntário" },
+                          { label: "Treinamento de Anfitriões de Mesa" },
+                        ].map(({ label, href }) => {
+                          const cls =
+                            "inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10";
+                          return href ? (
+                            <a
+                              key={label}
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={cls}
+                            >
+                              {label}
+                            </a>
+                          ) : (
+                            <button key={label} className={cls}>
+                              {label}
+                            </button>
+                          );
+                        })}
                       </div>
                     )}
 
@@ -460,11 +474,13 @@ function TrilhaBtn({
   active,
   onClick,
   variant = "default",
+  href,
 }: {
   label: string;
   active?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   variant?: "default" | "sub" | "leaf";
+  href?: string;
 }) {
   const base =
     "inline-flex items-center rounded-full px-5 py-2 text-sm font-medium transition";
@@ -476,6 +492,18 @@ function TrilhaBtn({
         : active
           ? "bg-gold text-primary-foreground"
           : "border border-gold/40 bg-gold/5 text-gold hover:bg-gold/10";
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${base} ${styles}`}
+      >
+        {label}
+      </a>
+    );
+  }
   return (
     <button onClick={onClick} className={`${base} ${styles}`}>
       {label}
@@ -494,17 +522,24 @@ function TrilhasBlock({
   familiaSub: string | null;
   setFamiliaSub: (s: string | null) => void;
 }) {
-  const trilhas = [
-    "Família",
-    "Inteligência Relacional Bíblica",
-    "Empresário Cristão",
-    "Profissional",
+  const trilhas: { label: string; href?: string }[] = [
+    { label: "Família" },
+    {
+      label: "Inteligência Relacional Bíblica",
+      href: "https://mentesafesaudavel.lovable.app",
+    },
+    { label: "Empresário Cristão" },
+    { label: "Profissional" },
   ];
   const familiaOpts = ["Homem", "Mulher", "Filho"];
-  const subOpts: Record<string, string[]> = {
-    Homem: ["Pai", "Marido"],
-    Mulher: ["Mãe", "Esposa"],
-    Filho: ["Criança", "Jovem", "Jovem Adulto"],
+  const subOpts: Record<string, { label: string; href?: string }[]> = {
+    Homem: [{ label: "Pai" }, { label: "Marido" }],
+    Mulher: [{ label: "Mãe" }, { label: "Esposa" }],
+    Filho: [
+      { label: "Criança", href: "https://mesa-guide-app.lovable.app" },
+      { label: "Jovem", href: "https://mesa-guide-app.lovable.app" },
+      { label: "Jovem Adulto" },
+    ],
   };
 
   return (
@@ -516,10 +551,11 @@ function TrilhasBlock({
         <div className="flex flex-wrap items-center justify-center gap-3">
           {trilhas.map((t) => (
             <TrilhaBtn
-              key={t}
-              label={t}
-              active={trilha === t}
-              onClick={() => setTrilha(trilha === t ? null : t)}
+              key={t.label}
+              label={t.label}
+              href={t.href}
+              active={trilha === t.label}
+              onClick={() => setTrilha(trilha === t.label ? null : t.label)}
             />
           ))}
         </div>
@@ -550,7 +586,12 @@ function TrilhasBlock({
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {subOpts[familiaSub].map((l) => (
-              <TrilhaBtn key={l} label={l} variant="leaf" onClick={() => {}} />
+              <TrilhaBtn
+                key={l.label}
+                label={l.label}
+                href={l.href}
+                variant="leaf"
+              />
             ))}
           </div>
         </div>
