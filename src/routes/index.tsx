@@ -551,10 +551,11 @@ function TrilhasBlock({
         <div className="flex flex-wrap items-center justify-center gap-3">
           {trilhas.map((t) => (
             <TrilhaBtn
-              key={t}
-              label={t}
-              active={trilha === t}
-              onClick={() => setTrilha(trilha === t ? null : t)}
+              key={t.label}
+              label={t.label}
+              href={t.href}
+              active={trilha === t.label}
+              onClick={() => setTrilha(trilha === t.label ? null : t.label)}
             />
           ))}
         </div>
