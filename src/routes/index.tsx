@@ -586,7 +586,12 @@ function TrilhasBlock({
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {subOpts[familiaSub].map((l) => (
-              <TrilhaBtn key={l} label={l} variant="leaf" onClick={() => {}} />
+              <TrilhaBtn
+                key={l.label}
+                label={l.label}
+                href={l.href}
+                variant="leaf"
+              />
             ))}
           </div>
         </div>
