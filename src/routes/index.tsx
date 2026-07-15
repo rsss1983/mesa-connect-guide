@@ -522,17 +522,24 @@ function TrilhasBlock({
   familiaSub: string | null;
   setFamiliaSub: (s: string | null) => void;
 }) {
-  const trilhas = [
-    "Família",
-    "Inteligência Relacional Bíblica",
-    "Empresário Cristão",
-    "Profissional",
+  const trilhas: { label: string; href?: string }[] = [
+    { label: "Família" },
+    {
+      label: "Inteligência Relacional Bíblica",
+      href: "https://mentesafesaudavel.lovable.app",
+    },
+    { label: "Empresário Cristão" },
+    { label: "Profissional" },
   ];
   const familiaOpts = ["Homem", "Mulher", "Filho"];
-  const subOpts: Record<string, string[]> = {
-    Homem: ["Pai", "Marido"],
-    Mulher: ["Mãe", "Esposa"],
-    Filho: ["Criança", "Jovem", "Jovem Adulto"],
+  const subOpts: Record<string, { label: string; href?: string }[]> = {
+    Homem: [{ label: "Pai" }, { label: "Marido" }],
+    Mulher: [{ label: "Mãe" }, { label: "Esposa" }],
+    Filho: [
+      { label: "Criança", href: "https://mesa-guide-app.lovable.app" },
+      { label: "Jovem", href: "https://mesa-guide-app.lovable.app" },
+      { label: "Jovem Adulto" },
+    ],
   };
 
   return (
