@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import mesaLogo from "@/assets/mesa-logo.jpeg";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/manual")({
   head: () => ({
     meta: [
       { title: "MESA Church — Manual de Integração" },
