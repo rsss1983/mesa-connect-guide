@@ -101,7 +101,7 @@ function MesaConnect() {
               alt="MESA Church"
               className="h-9 w-9 rounded-full object-cover"
             />
-            <span className="font-serif text-lg text-gold-soft">
+            <span className="whitespace-nowrap font-serif text-lg text-gold-soft">
               Mesa Connect
             </span>
           </a>
