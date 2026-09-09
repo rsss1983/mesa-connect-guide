@@ -5,12 +5,20 @@ import mesaLogo from "@/assets/mesa-logo.jpeg";
 export const Route = createFileRoute("/manual")({
   head: () => ({
     meta: [
-      { title: "MESA Church — Manual de Integração" },
+      { title: "Manual de Integração — MESA Church" },
       {
         name: "description",
         content:
           "Puxe a cadeira. Manual de integração da MESA Church — Igreja, Família e Propósito.",
       },
+      { property: "og:title", content: "Manual de Integração — MESA Church" },
+      {
+        property: "og:description",
+        content:
+          "Caminhando para A MESA: salvação, batismo, ceia, servir e trilhas de discipulado.",
+      },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Manual,
