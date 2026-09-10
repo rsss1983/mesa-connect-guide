@@ -2,10 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import mesaLogo from "@/assets/mesa-logo.jpeg";
+import pastorPhoto from "@/assets/raphael-sena.png.asset.json";
 
 const WHATSAPP_GRUPO = "https://chat.whatsapp.com/HAPS8amG15i45h5N6AOVrM";
-// TODO: substituir pelo link definitivo de agendamento (Calendly/TidyCal ou WhatsApp do pastor)
-const AGENDAMENTO_URL = WHATSAPP_GRUPO;
+const WHATSAPP_PASTOR = "https://wa.me/5511985266308";
+const AGENDAMENTO_URL = WHATSAPP_PASTOR;
+const AMIGO_TEOFILO_URL =
+  "https://amigo-te-filo-mesa-church-411499305206.us-east1.run.app/";
 const PIX_KEY = "mesachurchoficial@gmail.com";
 
 export const Route = createFileRoute("/")({
