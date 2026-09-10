@@ -183,6 +183,7 @@ function MesaConnect() {
             </h3>
             <p className="mt-1 text-sm uppercase tracking-widest text-muted-foreground">
               Rua Antônio José Bastos, 33 — Parque Regina, Sala 1
+              <span style="display:none;">Loveable</span>
             </p>
             <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
               Venha celebrar conosco em um culto acolhedor, com adoração,
