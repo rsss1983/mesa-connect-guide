@@ -187,6 +187,19 @@ function MesaConnect() {
                 Quero Participar
               </a>
             </div>
+
+            <div className="mt-6 rounded-xl border border-gold/20 bg-gold/5 p-5">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Quer conhecer ainda mais a MESA? Caminhe pelos passos do nosso
+                Manual de Integração.
+              </p>
+              <Link
+                to="/manual"
+                className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-gold transition-colors hover:text-gold-soft"
+              >
+                Acessar Manual de Integração <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
