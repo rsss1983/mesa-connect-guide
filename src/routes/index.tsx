@@ -5,7 +5,7 @@ import mesaLogo from "@/assets/mesa-logo.jpeg";
 import pastorPhoto from "@/assets/raphael-sena.png.asset.json";
 
 const WHATSAPP_GRUPO = "https://chat.whatsapp.com/HAPS8amG15i45h5N6AOVrM";
-const WHATSAPP_PASTOR = "https://wa.me/5511985266308?text=Ol%C3%A1%20Sou%20o%20Pastor%20Raphael%2C%20Estou%20aqui%20para%20te%20ajudar%2C%20Mande%20mensagem%20aqui%20te%20respondo";
+const WHATSAPP_PASTOR = "https://wa.me/5511985266308";
 const AGENDAMENTO_URL = WHATSAPP_PASTOR;
 const AMIGO_TEOFILO_URL =
   "https://amigo-te-filo-mesa-church-411499305206.us-east1.run.app/";
