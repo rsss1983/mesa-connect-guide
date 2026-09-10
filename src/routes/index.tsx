@@ -99,6 +99,7 @@ function MesaConnect() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" className="flex items-center gap-3">
+            <img src="/lovable-uploads/logo.png" alt="MESA Church" className="h-8 w-auto" />
             <span className="whitespace-nowrap font-serif text-lg text-gold-soft">
               Mesa Connect
             </span>
