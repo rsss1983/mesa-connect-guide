@@ -233,7 +233,7 @@ function MesaConnect() {
             <Countdown />
             <div className="mt-7">
               <a
-                href={WHATSAPP_GRUPO}
+                href="https://us04web.zoom.us/launch/jc/75521781416"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
