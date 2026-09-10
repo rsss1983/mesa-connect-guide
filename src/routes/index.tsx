@@ -149,6 +149,14 @@ function MesaConnect() {
               Participar do Grupo
             </a>
             <a
+              href={AMIGO_TEOFILO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-gold/50 px-7 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+            >
+              Série Amigo Teófilo
+            </a>
+            <a
               href="#pastoral"
               className="rounded-full border border-gold/50 px-7 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
             >
