@@ -254,14 +254,6 @@ function MesaConnect() {
                 >
                   Agendar Atendimento
                 </a>
-                <a
-                  href={AMIGO_TEOFILO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-                >
-                  Série Amigo Teófilo
-                </a>
               </div>
             </div>
           </div>
