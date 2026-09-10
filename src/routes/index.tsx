@@ -183,39 +183,6 @@ function MesaConnect() {
           </div>
         </section>
 
-        {/* Grupo de Conexão */}
-        <section id="grupo" className="scroll-mt-24 py-10">
-          <SectionTitle>Nosso Encontro Semanal</SectionTitle>
-          <div className="rounded-2xl border border-gold/25 bg-card/70 p-7 sm:p-10 glow-gold">
-            <p className="text-xs uppercase tracking-[0.35em] text-gold-soft">
-              Grupo de Conexão Mesa
-            </p>
-            <h3 className="mt-3 font-serif text-3xl sm:text-4xl">
-              Terças-feiras, às 09:00
-            </h3>
-            <p className="mt-1 text-sm uppercase tracking-widest text-muted-foreground">
-              Encontro presencial · Rua Antônio José Bastos, 33 — Parque Regina, Sala 1
-            </p>
-            <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
-              Uma hora para respirar, abrir a Palavra juntos e caminhar com
-              gente de verdade. Sem palco, sem máscara — só uma mesa aberta,
-              conversa honesta e oração uns pelos outros. Você não precisa
-              chegar pronto; basta chegar.
-            </p>
-            <Countdown />
-            <div className="mt-7">
-              <a
-                href={WHATSAPP_GRUPO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-              >
-                Quero Participar
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* Culto de Celebração */}
         <section id="culto" className="scroll-mt-24 py-10">
           <SectionTitle>Culto de Celebração</SectionTitle>
@@ -236,12 +203,42 @@ function MesaConnect() {
             </p>
             <div className="mt-7">
               <a
-                href={WHATSAPP_PASTOR}
+                href="https://maps.app.goo.gl/HuUnTK7REc1kNCUf6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
               >
                 Quero Ir no Domingo
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Grupo de Conexão */}
+        <section id="grupo" className="scroll-mt-24 py-10">
+          <SectionTitle>Nosso Encontro Semanal</SectionTitle>
+          <div className="rounded-2xl border border-gold/25 bg-card/70 p-7 sm:p-10 glow-gold">
+            <p className="text-xs uppercase tracking-[0.35em] text-gold-soft">
+              Grupo de Conexão Mesa
+            </p>
+            <h3 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Terças-feiras, às 09:00
+            </h3>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
+              Uma hora para respirar, abrir a Palavra juntos e caminhar com
+              gente de verdade. Sem palco, sem máscara — só uma mesa aberta,
+              conversa honesta e oração uns pelos outros. Você não precisa
+              chegar pronto; basta chegar.
+            </p>
+            <Countdown />
+            <div className="mt-7">
+              <a
+                href={WHATSAPP_GRUPO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+              >
+                Quero Participar
               </a>
             </div>
           </div>
