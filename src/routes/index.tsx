@@ -207,11 +207,13 @@ function MesaConnect() {
         <section id="pastoral" className="scroll-mt-24 py-10">
           <SectionTitle>Cuidado e Atendimento Pastoral</SectionTitle>
           <div className="flex flex-col items-center gap-7 rounded-2xl border border-border bg-card/60 p-7 text-center sm:flex-row sm:items-start sm:p-10 sm:text-left">
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-background/60 font-serif text-3xl text-gold">
-              MC
-            </div>
+            <img
+              src={pastorPhoto.url}
+              alt="Pastor Raphael Sena"
+              className="h-28 w-28 shrink-0 rounded-full border border-gold/40 object-cover"
+            />
             <div>
-              <h3 className="font-serif text-2xl">Pastor da MESA Church</h3>
+              <h3 className="font-serif text-2xl">Pastor Raphael Sena</h3>
               <p className="mt-3 leading-relaxed text-muted-foreground">
                 Precisa de oração, aconselhamento ou direcionamento? Você pode
                 conversar diretamente com o nosso pastor, de forma reservada e
@@ -220,14 +222,35 @@ function MesaConnect() {
               <p className="mt-3 text-sm text-gold-soft">
                 Atendimentos com horário marcado durante a semana.
               </p>
-              <a
-                href={AGENDAMENTO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-              >
-                Agendar Atendimento
-              </a>
+              <p className="mt-2 text-sm text-muted-foreground">
+                WhatsApp:{" "}
+                <a
+                  href={WHATSAPP_PASTOR}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold underline underline-offset-4 transition-colors hover:text-gold-soft"
+                >
+                  (11) 98526-6308
+                </a>
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a
+                  href={AGENDAMENTO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                >
+                  Agendar Atendimento
+                </a>
+                <a
+                  href={AMIGO_TEOFILO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+                >
+                  Série Amigo Teófilo
+                </a>
+              </div>
             </div>
           </div>
         </section>
