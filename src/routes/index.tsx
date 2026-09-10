@@ -216,6 +216,37 @@ function MesaConnect() {
           </div>
         </section>
 
+        {/* Culto de Celebração */}
+        <section id="culto" className="scroll-mt-24 py-10">
+          <SectionTitle>Culto de Celebração</SectionTitle>
+          <div className="rounded-2xl border border-gold/25 bg-card/70 p-7 sm:p-10 glow-gold">
+            <p className="text-xs uppercase tracking-[0.35em] text-gold-soft">
+              Encontro Presencial
+            </p>
+            <h3 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Domingos, às 10:00
+            </h3>
+            <p className="mt-1 text-sm uppercase tracking-widest text-muted-foreground">
+              Rua Antônio José Bastos, 33 — Parque Regina, Sala 1
+            </p>
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
+              Venha celebrar conosco em um culto acolhedor, com adoração,
+              Palavra e comunhão. Um espaço para toda a família encontrar
+              direção, esperança e pertencimento no Reino de Deus.
+            </p>
+            <div className="mt-7">
+              <a
+                href={WHATSAPP_PASTOR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+              >
+                Quero Ir no Domingo
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Pastoral */}
         <section id="pastoral" className="scroll-mt-24 py-10">
           <SectionTitle>Cuidado e Atendimento Pastoral</SectionTitle>
