@@ -1,35 +1,33 @@
-# Mesa Connect — ajustes na página inicial
+# Mesa Connect — reorganização dos blocos da landing
 
-Ajustar a landing `src/routes/index.tsx` com os dados do pastor Raphael Sena, link do WhatsApp, série Amigo Teófilo e destaque para o Manual de Integração.
+Reorganizar a página inicial `src/routes/index.tsx` para refletir a nova disposição pedida: o botão "Série Amigo Teófilo" sobe para o hero ao lado de "Participar do Grupo", o convite ao Manual de Integração passa a ficar antes da seção "Nosso Encontro Semanal", e o encontro passa a ser apresentado como presencial com o endereço da MESA.
 
 ## O que mudar
 
-1. **Foto do pastor**
-   - Fazer upload da imagem `raphael_podcast.png` (user-uploads) para Lovable Assets, gerando `src/assets/raphael-sena.png.asset.json`.
-   - Substituir o avatar circular com as iniciais "MC" na seção pastoral pela foto do pastor.
+1. **Hero — botões lado a lado**
+   - Manter o botão "Participar do Grupo" (âncora `#grupo`).
+   - Adicionar o botão "Série Amigo Teófilo" ao lado dele, usando o link `https://amigo-te-filo-mesa-church-411499305206.us-east1.run.app/` e abrindo em nova aba.
+   - Manter o botão "Falar com o Pastor" ao lado direito.
 
-2. **Identificação pastoral**
-   - Trocar o título "Pastor da MESA Church" por "Pastor Raphael Sena".
-   - Manter o texto de cuidado/atendimento.
+2. **"Quer conhecer a MESA?" antes do encontro semanal**
+   - Mover o card atual do Manual de Integração de dentro da seção "Nosso Encontro Semanal" para uma seção própria posicionada imediatamente antes de `<section id="grupo">`.
+   - Manter o texto convidativo e o link interno `<Link to="/manual">`.
 
-3. **WhatsApp do pastor**
-   - Incluir o telefone `(11) 98526-6308` com link direto `https://wa.me/5511985266308` na seção pastoral.
-   - O botão "Agendar Atendimento" continua indo para o WhatsApp do pastor enquanto não houver Calendly/TidyCal.
+3. **Encontro presencial com endereço**
+   - Na seção "Nosso Encontro Semanal", substituir o subtítulo "Online · Google Meet" por:
+     `Encontro presencial · Rua Antônio José Bastos, 33 — Parque Regina, Sala 1`.
+   - Manter o horário "Terças-feiras, às 09:00".
+   - Manter o botão "Quero Participar" indo para o grupo de WhatsApp.
 
-4. **Série Amigo Teófilo**
-   - Adicionar botão "Série Amigo Teófilo" na seção pastoral, apontando para `https://amigo-te-filo-mesa-church-411499305206.us-east1.run.app/`.
-   - Abrir em nova aba.
-
-5. **Manual de Integração abaixo do "Participar do Grupo"**
-   - Na seção "Nosso Encontro Semanal", abaixo do botão "Quero Participar", inserir um card discreto convidando para o Manual de Integração.
-   - Link interno para `/manual` usando `<Link>` do TanStack Router.
+4. **Seção pastoral**
+   - Remover o botão "Série Amigo Teófilo" da seção pastoral, já que ele foi para o hero.
+   - Manter a foto, o nome "Pastor Raphael Sena", o WhatsApp e o botão "Agendar Atendimento".
 
 ## Arquivos envolvidos
 
-- `src/routes/index.tsx` — alterações na landing.
-- `src/assets/raphael-sena.png.asset.json` — ponteiro da foto do pastor.
+- `src/routes/index.tsx` — reorganização dos blocos e textos.
 
 ## Validação
 
 - `bun run build` deve passar.
-- Verificar visualmente no preview: foto do pastor, nome, botões de WhatsApp e Série Amigo Teófilo, e card do Manual na seção do grupo.
+- Verificar visualmente no preview: hero com três botões, card do Manual antes do encontro, e endereço presencial na seção do grupo.
