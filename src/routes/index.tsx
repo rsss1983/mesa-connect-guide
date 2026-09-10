@@ -35,8 +35,8 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { id: "inicio", label: "Início" },
-  { id: "grupo", label: "Grupo de Conexão" },
   { id: "culto", label: "Culto de Celebração" },
+  { id: "grupo", label: "Grupo de Conexão" },
   { id: "pastoral", label: "Atendimento Pastoral" },
   { id: "contribua", label: "Contribua" },
 ];
