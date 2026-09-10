@@ -99,7 +99,6 @@ function MesaConnect() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" className="flex items-center gap-3">
-            <img src="/lovable-uploads/logo.png" alt="MESA Church" className="h-8 w-auto" />
             <span className="whitespace-nowrap font-serif text-lg text-gold-soft">
               Mesa Connect
             </span>
@@ -183,7 +182,6 @@ function MesaConnect() {
             </h3>
             <p className="mt-1 text-sm uppercase tracking-widest text-muted-foreground">
               Rua Antônio José Bastos, 33 — Parque Regina, Sala 1
-              <span style="display:none;">Loveable</span>
             </p>
             <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
               Venha celebrar conosco em um culto acolhedor, com adoração,
