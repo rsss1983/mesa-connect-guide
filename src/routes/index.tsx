@@ -130,7 +130,7 @@ function MesaConnect() {
             <img
               src={mesaLogo}
               alt="Logotipo da MESA Church"
-              className="w-full rounded-full glow-gold"
+              className="w-full rounded-full border-2 border-white/20 shadow-2xl shadow-black/40"
             />
           </div>
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
