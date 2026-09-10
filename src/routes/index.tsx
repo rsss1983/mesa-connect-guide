@@ -165,6 +165,23 @@ function MesaConnect() {
           </div>
         </section>
 
+        {/* Conheça a MESA */}
+        <section className="scroll-mt-24 py-10">
+          <SectionTitle>Quer conhecer a MESA?</SectionTitle>
+          <div className="rounded-2xl border border-gold/20 bg-gold/5 p-7 sm:p-10">
+            <p className="max-w-2xl leading-relaxed text-muted-foreground">
+              Caminhe pelos passos do nosso Manual de Integração e descubra
+              como assumir o seu lugar à mesa.
+            </p>
+            <Link
+              to="/manual"
+              className="mt-5 inline-flex items-center gap-1 rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+            >
+              Acessar Manual de Integração <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </section>
+
         {/* Grupo de Conexão */}
         <section id="grupo" className="scroll-mt-24 py-10">
           <SectionTitle>Nosso Encontro Semanal</SectionTitle>
@@ -176,7 +193,7 @@ function MesaConnect() {
               Terças-feiras, às 09:00
             </h3>
             <p className="mt-1 text-sm uppercase tracking-widest text-muted-foreground">
-              Online · Google Meet
+              Encontro presencial · Rua Antônio José Bastos, 33 — Parque Regina, Sala 1
             </p>
             <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
               Uma hora para respirar, abrir a Palavra juntos e caminhar com
@@ -194,19 +211,6 @@ function MesaConnect() {
               >
                 Quero Participar
               </a>
-            </div>
-
-            <div className="mt-6 rounded-xl border border-gold/20 bg-gold/5 p-5">
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Quer conhecer ainda mais a MESA? Caminhe pelos passos do nosso
-                Manual de Integração.
-              </p>
-              <Link
-                to="/manual"
-                className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-gold transition-colors hover:text-gold-soft"
-              >
-                Acessar Manual de Integração <span aria-hidden>→</span>
-              </Link>
             </div>
           </div>
         </section>
