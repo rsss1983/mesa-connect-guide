@@ -13,7 +13,7 @@ Ajustar a landing `src/routes/index.tsx` com os dados do pastor Raphael Sena, li
    - Manter o texto de cuidado/atendimento.
 
 3. **WhatsApp do pastor**
-   - Incluir o telefone `(11) 8526-6308` com link direto `https://wa.me/551185266308` na seção pastoral.
+   - Incluir o telefone `(11) 98526-6308` com link direto `https://wa.me/5511985266308` na seção pastoral.
    - O botão "Agendar Atendimento" continua indo para o WhatsApp do pastor enquanto não houver Calendly/TidyCal.
 
 4. **Série Amigo Teófilo**
