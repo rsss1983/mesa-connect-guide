@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import mesaLogo from "@/assets/mesa-logo.jpeg";
 import pastorPhoto from "@/assets/raphael-sena.png.asset.json";
 
 const WHATSAPP_GRUPO = "https://chat.whatsapp.com/HAPS8amG15i45h5N6AOVrM";
@@ -100,11 +99,6 @@ function MesaConnect() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" className="flex items-center gap-3">
-            <img
-              src={mesaLogo}
-              alt="MESA Church"
-              className="h-9 w-9 rounded-full object-cover"
-            />
             <span className="whitespace-nowrap font-serif text-lg text-gold-soft">
               Mesa Connect
             </span>
@@ -126,13 +120,6 @@ function MesaConnect() {
       <main className="mx-auto max-w-5xl px-5 pb-24">
         {/* Hero */}
         <section id="inicio" className="scroll-mt-24 pt-14 pb-16 text-center">
-          <div className="mx-auto mb-8 w-32 sm:w-40">
-            <img
-              src={mesaLogo}
-              alt="Logotipo da MESA Church"
-              className="w-full rounded-full border-2 border-white/20 shadow-2xl shadow-black/40"
-            />
-          </div>
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
             MESA Church
           </p>
