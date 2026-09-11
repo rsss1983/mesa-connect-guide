@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import mesaLogo from "@/assets/mesa-logo.jpeg";
 
@@ -137,7 +137,7 @@ const STORAGE_KEY = "mesa.manual.completed.v1";
 
 function Manual() {
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
-  const [openId, setOpenId] = useState<string>(STEPS[0].id);
+  const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
     try {
