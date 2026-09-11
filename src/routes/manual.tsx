@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import mesaLogo from "@/assets/mesa-logo.jpeg";
 
@@ -137,7 +137,7 @@ const STORAGE_KEY = "mesa.manual.completed.v1";
 
 function Manual() {
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
-  const [openId, setOpenId] = useState<string>(STEPS[0].id);
+  const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -181,7 +181,13 @@ function Manual() {
     <div className="min-h-screen">
       {/* Hero */}
       <header className="relative overflow-hidden">
-        <div className="mx-auto max-w-5xl px-6 pt-16 pb-12 text-center">
+        <div className="relative mx-auto max-w-5xl px-6 pt-16 pb-12 text-center">
+          <Link
+            to="/"
+            className="absolute top-4 left-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
+          >
+            <span aria-hidden>←</span> Voltar
+          </Link>
           <div className="mx-auto mb-8 w-40 sm:w-48">
             <img
               src={mesaLogo}
