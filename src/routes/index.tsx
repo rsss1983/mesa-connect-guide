@@ -123,7 +123,7 @@ function MesaConnect() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
             MESA Church
           </p>
-          <h1 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
+          <h1 cclassName="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
             Bem-vindo à Mesa Connect
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">

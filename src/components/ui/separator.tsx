@@ -15,6 +15,7 @@ const Separator = React.memo(
       className={cn(
         "shrink-0 bg-border",
         orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+        "bg-gold/20",
         className,
       )}
       {...props}
