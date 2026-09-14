@@ -123,7 +123,7 @@ function MesaConnect() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
             MESA Church
           </p>
-          <h1 cclassName="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
+          <h1 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
             Bem-vindo à Mesa Connect
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
@@ -377,7 +377,7 @@ function MesaConnect() {
           </div>
         </section>
 
-        {/* Pastoral */
+        {/* Pastoral */}
         <section id="pastoral" className="scroll-mt-24 py-10">
           <SectionTitle>Cuidado e Atendimento Pastoral</SectionTitle>
           <div className="flex flex-col items-center gap-7 rounded-2xl border border-border bg-card/60 p-7 text-center sm:flex-row sm:items-start sm:p-10 sm:text-left">
