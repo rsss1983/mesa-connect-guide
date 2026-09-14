@@ -248,6 +248,10 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+                onClick={() => {
+                  // Função para gravar oração
+                  console.log("Gravar Oração");
+                }}
               >
                 Gravar Oração
               </button>
@@ -255,6 +259,10 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                onClick={() => {
+                  // Função para ver caderno de oração
+                  console.log("Ver Caderno de Oração");
+                }}
               >
                 Ver Caderno de Oração
               </button>
@@ -278,6 +286,10 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+                onClick={() => {
+                  // Função para ir para os 3 dias
+                  console.log("Ir para os 3 Dias");
+                }}
               >
                 Ir para os 3 Dias
               </button>
@@ -301,21 +313,37 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                onClick={() => {
+                  // Função para Domingo 1
+                  console.log("Domingo 1");
+                }}
               >
                 Domingo 1
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                onClick={() => {
+                  // Função para Domingo 2
+                  console.log("Domingo 2");
+                }}
               >
                 Domingo 2
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                onClick={() => {
+                  // Função para Domingo 3
+                  console.log("Domingo 3");
+                }}
               >
                 Domingo 3
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                onClick={() => {
+                  // Função para Domingo 4
+                  console.log("Domingo 4");
+                }}
               >
                 Domingo 4
               </button>
@@ -340,6 +368,10 @@ function MesaConnect() {
               <textarea
                 className="w-full p-2 border border-gold/50 rounded"
                 placeholder="Anotações de descanso..."
+                onChange={(e) => {
+                  // Função para salvar anotações de descanso
+                  console.log(e.target.value);
+                }}
               ></textarea>
             </div>
           </div>
