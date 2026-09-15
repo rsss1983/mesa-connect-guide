@@ -314,10 +314,13 @@ function Manual() {
                       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                         {[
                           { label: "Visão da Mesa" },
-                          { label: "Transparência Relacional" },
+                          {
+                            label: "Transparência Relacional",
+                            href: "https://mesa-church-governe-sua-mesa.ai.studio",
+                          },
                           {
                             label: "Vida no Reino",
-                            href: "https://30-dias-com-deus-dev-boxd.bolt.host/",
+                            href: "https://daily-devotion-rhythm.lovable.app",
                           },
                           { label: "Formulário de Voluntário" },
                           { label: "Treinamento de Anfitriões de Mesa" },
