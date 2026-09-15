@@ -123,7 +123,7 @@ function MesaConnect() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
             MESA Church
           </p>
-          <h1 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
+          <h1 cclassName="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-glow">
             Bem-vindo à Mesa Connect
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
@@ -248,10 +248,6 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-                onClick={() => {
-                  // Função para gravar oração
-                  console.log("Gravar Oração");
-                }}
               >
                 Gravar Oração
               </button>
@@ -259,10 +255,6 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-                onClick={() => {
-                  // Função para ver caderno de oração
-                  console.log("Ver Caderno de Oração");
-                }}
               >
                 Ver Caderno de Oração
               </button>
@@ -286,10 +278,6 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-                onClick={() => {
-                  // Função para ir para os 3 dias
-                  console.log("Ir para os 3 Dias");
-                }}
               >
                 Ir para os 3 Dias
               </button>
@@ -313,37 +301,21 @@ function MesaConnect() {
             <div className="mt-7">
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-                onClick={() => {
-                  // Função para Domingo 1
-                  console.log("Domingo 1");
-                }}
               >
                 Domingo 1
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-                onClick={() => {
-                  // Função para Domingo 2
-                  console.log("Domingo 2");
-                }}
               >
                 Domingo 2
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-                onClick={() => {
-                  // Função para Domingo 3
-                  console.log("Domingo 3");
-                }}
               >
                 Domingo 3
               </button>
               <button
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
-                onClick={() => {
-                  // Função para Domingo 4
-                  console.log("Domingo 4");
-                }}
               >
                 Domingo 4
               </button>
@@ -368,16 +340,12 @@ function MesaConnect() {
               <textarea
                 className="w-full p-2 border border-gold/50 rounded"
                 placeholder="Anotações de descanso..."
-                onChange={(e) => {
-                  // Função para salvar anotações de descanso
-                  console.log(e.target.value);
-                }}
               ></textarea>
             </div>
           </div>
         </section>
 
-        {/* Pastoral */}
+        {/* Pastoral */
         <section id="pastoral" className="scroll-mt-24 py-10">
           <SectionTitle>Cuidado e Atendimento Pastoral</SectionTitle>
           <div className="flex flex-col items-center gap-7 rounded-2xl border border-border bg-card/60 p-7 text-center sm:flex-row sm:items-start sm:p-10 sm:text-left">
