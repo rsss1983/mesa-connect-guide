@@ -326,7 +326,7 @@ function Manual() {
                             href: "https://daily-devotion-rhythm.lovable.app",
                           },
                           { label: "Formulário de Voluntário" },
-                          { label: "Treinamento de Anfitriões de Mesa" },
+                          { label: "Treinamento de Guardiões de Mesa" },
                         ].map(({ label, href }) => {
                           const cls =
                             "inline-flex items-center rounded-full border border-gold/40 bg-gold/5 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold/10";
