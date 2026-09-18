@@ -269,13 +269,16 @@ function Manual() {
 
   const [funcao, setFuncao] = useState<string | null>(null);
   const [funcaoCarregada, setFuncaoCarregada] = useState(false);
+  const [funcaoChecks, setFuncaoChecks] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem(FUNCAO_KEY);
-      if (saved && (FUNCOES as readonly string[]).includes(saved)) {
+      if (saved && FUNCOES.some((f) => f.nome === saved)) {
         setFuncao(saved);
       }
+      const rawChecks = localStorage.getItem(FUNCAO_CHECK_KEY);
+      if (rawChecks) setFuncaoChecks(JSON.parse(rawChecks));
     } catch {}
     setFuncaoCarregada(true);
   }, []);
@@ -284,8 +287,11 @@ function Manual() {
     if (!funcaoCarregada) return;
     try {
       localStorage.setItem(FUNCAO_KEY, funcao ?? "");
+      localStorage.setItem(FUNCAO_CHECK_KEY, JSON.stringify(funcaoChecks));
     } catch {}
-  }, [funcao, funcaoCarregada]);
+  }, [funcao, funcaoChecks, funcaoCarregada]);
+
+  const funcaoAtiva = FUNCOES.find((f) => f.nome === funcao) ?? null;
 
   useEffect(() => {
     try {
