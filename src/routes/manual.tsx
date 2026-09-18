@@ -135,13 +135,106 @@ const STEPS: Step[] = [
 
 const STORAGE_KEY = "mesa.manual.completed.v1";
 const FUNCAO_KEY = "mesa.funcao.v1";
-const FUNCOES = [
-  "Membro",
-  "Cooperador",
-  "Diácono",
-  "Presbítero",
-  "Pastor",
-] as const;
+const FUNCAO_CHECK_KEY = "mesa.funcao.checklist.v1";
+
+type FuncaoInfo = {
+  nome: string;
+  icone: string;
+  titulo: string;
+  status: string;
+  requisito?: string;
+  itens: string[];
+  foco: string;
+};
+
+const FUNCOES: FuncaoInfo[] = [
+  {
+    nome: "Membro",
+    icone: "🪑",
+    titulo: "A Cadeira à Mesa",
+    status:
+      "Alguém que decidiu puxar a cadeira e assumir o seu lugar na MESA Church.",
+    itens: [
+      "Concluir a trilha de Onboarding: visão da casa (A Base Profética, Os 3 Pilares, Manifesto)",
+      "Participar do Café com o Pastor",
+      "Integrar-se a um Grupo Familiar / Célula",
+      "Escolher uma frente do Caminho do Peregrino (Cura Emocional, Cura Profissional ou Mulheres Posicionadas)",
+    ],
+    foco:
+      "Romper com a autossuficiência, viver em transparência relacional e vivenciar o discipulado vivo.",
+  },
+  {
+    nome: "Cooperador",
+    icone: "🤝",
+    titulo: "Serviço & Aliança",
+    status: "O membro que decidiu servir ativamente no corpo.",
+    requisito:
+      "Ter concluído a trilha inicial do membro e feito o Intensivão de Voluntários (1 dia).",
+    itens: [
+      "Concluir o Intensivão de Voluntários (1 dia)",
+      "Atuar em uma equipe de serviço (Acolhimento, Mídia, Kids, Infraestrutura...)",
+      "Presença assídua nos encontros do Grupo Familiar",
+      "Concluir o curso Introdução ao Serviço Ministerial",
+      "Concluir a trilha prática da sua área (Louvor, Palavra, Intercessão ou Evangelismo)",
+    ],
+    foco: "Cultivar o coração de servo e ser fiel nas pequenas tarefas.",
+  },
+  {
+    nome: "Diácono",
+    icone: "🛡️",
+    titulo: "Apascentando e Discipulando Pessoas",
+    status:
+      "Líder em formação e suporte da liderança espiritual da congregação.",
+    requisito: "Conclusão do Curso de Diaconato (3 meses).",
+    itens: [
+      "Concluir o Curso de Diaconato (3 meses)",
+      "Discipular diretamente 3 pessoas",
+      "Servir nos cultos, eventos e relógios de oração",
+      "Dar suporte prático às famílias",
+      "Cobrir e auxiliar os presbíteros do ministério",
+      "Concluir o módulo Fundamentos Teológicos & Cuidado de Vidas",
+    ],
+    foco:
+      "Testemunho de vida exemplar, maturidade e discernimento no cuidado direto.",
+  },
+  {
+    nome: "Presbítero",
+    icone: "🏛️",
+    titulo: "Governo e Liderança de Grupos",
+    status:
+      "Oficial responsável pelo pastoreio direto e governo de pequenos grupos.",
+    requisito: "Conclusão do Curso de Presbítero (1 ano).",
+    itens: [
+      "Concluir o Curso de Presbítero (1 ano)",
+      "Liderar e fazer crescer 1 Grupo Familiar",
+      "Formar e mentorear 5 diáconos (encontro R12 de acompanhamento)",
+      "Realizar visitas aos lares e oração pelos enfermos",
+      "Cobertura espiritual regional",
+      "Acompanhar o relatório de saúde do seu Grupo Familiar",
+    ],
+    foco:
+      "Sabedoria pastoral, combate em batalha espiritual e formação de novos líderes.",
+  },
+  {
+    nome: "Pastor",
+    icone: "📜",
+    titulo: "Visão, Expansão e Pastoreio de Líderes",
+    status:
+      "O líder visionário que cuida de regiões, ministérios e do corpo geral de líderes.",
+    requisito:
+      "Curso Pastoral (4 anos) ou percurso prévio de Evangelista/Missionária + Teologia avançada.",
+    itens: [
+      "Concluir o Curso Pastoral (4 anos)",
+      "Apascentar 1 Região Familiar ou presidir um departamento da igreja",
+      "Pastorear e discipular 5 presbíteros / evangelistas",
+      "Pregar e alinhar a cultura da casa",
+      "Zelar pela pureza da doutrina",
+      "Formar novos pastores",
+    ],
+    foco:
+      "Paternidade espiritual, discernimento de governo, unção e zelo pelo crescimento saudável da igreja.",
+  },
+];
 
 function Manual() {
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
