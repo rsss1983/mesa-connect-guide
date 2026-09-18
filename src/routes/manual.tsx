@@ -168,39 +168,45 @@ function Manual() {
   const toggle = (id: string) =>
     setCompleted((c) => ({ ...c, [id]: !c[id] }));
 
-  const [aceito, setAceito] = useState(() => {
-    try {
-      return localStorage.getItem("mesa.salvacao.aceito") === "true";
-    } catch {
-      return false;
-    }
-  });
+  const [aceito, setAceito] = useState(false);
+  const [aceitoCarregado, setAceitoCarregado] = useState(false);
 
   const [trilha, setTrilha] = useState<string | null>(null);
   const [familiaSub, setFamiliaSub] = useState<string | null>(null);
 
-  const [funcao, setFuncao] = useState<string | null>(() => {
-    try {
-      const saved = localStorage.getItem(FUNCAO_KEY);
-      return saved && (FUNCOES as readonly string[]).includes(saved)
-        ? saved
-        : null;
-    } catch {
-      return null;
-    }
-  });
+  const [funcao, setFuncao] = useState<string | null>(null);
+  const [funcaoCarregada, setFuncaoCarregada] = useState(false);
 
   useEffect(() => {
+    try {
+      const saved = localStorage.getItem(FUNCAO_KEY);
+      if (saved && (FUNCOES as readonly string[]).includes(saved)) {
+        setFuncao(saved);
+      }
+    } catch {}
+    setFuncaoCarregada(true);
+  }, []);
+
+  useEffect(() => {
+    if (!funcaoCarregada) return;
     try {
       localStorage.setItem(FUNCAO_KEY, funcao ?? "");
     } catch {}
-  }, [funcao]);
+  }, [funcao, funcaoCarregada]);
 
   useEffect(() => {
     try {
+      setAceito(localStorage.getItem("mesa.salvacao.aceito") === "true");
+    } catch {}
+    setAceitoCarregado(true);
+  }, []);
+
+  useEffect(() => {
+    if (!aceitoCarregado) return;
+    try {
       localStorage.setItem("mesa.salvacao.aceito", String(aceito));
     } catch {}
-  }, [aceito]);
+  }, [aceito, aceitoCarregado]);
 
   return (
     <div className="min-h-screen">
