@@ -453,7 +453,7 @@ function Manual() {
                           >
                             {marcado ? "✓" : ""}
                           </span>
-                          <span className={marcado ? "line-through/0" : ""}>
+                          <span className={marcado ? "text-foreground" : ""}>
                             {item}
                           </span>
                         </button>
