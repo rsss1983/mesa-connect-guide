@@ -134,6 +134,14 @@ const STEPS: Step[] = [
 ];
 
 const STORAGE_KEY = "mesa.manual.completed.v1";
+const FUNCAO_KEY = "mesa.funcao.v1";
+const FUNCOES = [
+  "Membro",
+  "Cooperador",
+  "Diácono",
+  "Presbítero",
+  "Pastor",
+] as const;
 
 function Manual() {
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
@@ -170,6 +178,23 @@ function Manual() {
 
   const [trilha, setTrilha] = useState<string | null>(null);
   const [familiaSub, setFamiliaSub] = useState<string | null>(null);
+
+  const [funcao, setFuncao] = useState<string | null>(() => {
+    try {
+      const saved = localStorage.getItem(FUNCAO_KEY);
+      return saved && (FUNCOES as readonly string[]).includes(saved)
+        ? saved
+        : null;
+    } catch {
+      return null;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(FUNCAO_KEY, funcao ?? "");
+    } catch {}
+  }, [funcao]);
 
   useEffect(() => {
     try {
@@ -218,6 +243,33 @@ function Manual() {
                 className="h-full bg-gradient-to-r from-ember via-gold to-gold-soft transition-all duration-700"
                 style={{ width: `${progress}%` }}
               />
+            </div>
+          </div>
+
+          {/* Funções na Mesa */}
+          <div className="mx-auto mt-8 max-w-2xl">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
+              Seu lugar na Mesa
+            </p>
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+              {FUNCOES.map((nome) => {
+                const ativa = funcao === nome;
+                return (
+                  <button
+                    key={nome}
+                    type="button"
+                    aria-pressed={ativa}
+                    onClick={() => setFuncao(ativa ? null : nome)}
+                    className={`inline-flex items-center rounded-full border px-5 py-2 text-sm font-medium transition ${
+                      ativa
+                        ? "border-gold bg-gold text-primary-foreground"
+                        : "border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
+                    }`}
+                  >
+                    {nome}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
