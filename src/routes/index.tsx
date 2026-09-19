@@ -8,6 +8,7 @@ const WHATSAPP_PASTOR = "https://wa.me/5511985266308";
 const AGENDAMENTO_URL = WHATSAPP_PASTOR;
 const AMIGO_TEOFILO_URL =
   "https://amigo-te-filo-mesa-church-411499305206.us-east1.run.app/";
+const AMIGO_TEOFILO_SERIE_URL = "https://amigo-te-filo-mesa-church.ai.studio";
 const PIX_KEY = "mesachurchoficial@gmail.com";
 
 export const Route = createFileRoute("/")({
@@ -188,7 +189,7 @@ function MesaConnect() {
               Palavra e comunhão. Um espaço para toda a família encontrar
               direção, esperança e pertencimento no Reino de Deus.
             </p>
-            <div className="mt-7">
+            <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="https://maps.app.goo.gl/HuUnTK7REc1kNCUf6"
                 target="_blank"
@@ -196,6 +197,14 @@ function MesaConnect() {
                 className="inline-flex rounded-full border border-gold/50 px-8 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
               >
                 Quero Ir no Domingo
+              </a>
+              <a
+                href={AMIGO_TEOFILO_SERIE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full bg-gold px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+              >
+                Série Amigo Teófilo
               </a>
             </div>
           </div>
