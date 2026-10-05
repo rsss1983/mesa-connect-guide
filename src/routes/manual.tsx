@@ -62,9 +62,9 @@ const STEPS: Step[] = [
     title: "A Salvação em Cristo",
     subtitle: "O resgate do design original da nossa humanidade.",
     body: [
-      "Na ótica da Humanologia, salvação não é seguro contra o inferno nem ferramenta utilitarista para “vencer na vida”. É o resgate do design original da humanidade.",
+      "Na ótica da Mesa Church, salvação não é seguro contra o inferno nem ferramenta utilitarista para “vencer na vida”. É o resgate do design original da humanidade.",
       "A carne caída nos separou da glória de Deus e distorceu a identidade, nos empurrando ao orgulho autossuficiente ou ao desespero do isolamento. Jesus, 100% Deus, esvaziou-se e operou como 100% homem para pagar uma dívida que não era Dele. Na cruz e na ressurreição, Ele rasgou o véu e nos reconciliou com o Pai.",
-      "Quando confessamos Cristo como Kyrios — Senhor e Dono das nossas vidas — transitamos do barco do esforço humano para o barco da obediência ao Rei. Você não performa para ser aceito; você já foi aceito pelo sangue do Cordeiro.",
+      "Quando confessamos Cristo como Kyrios — Senhor e Dono das nossas vidas — mudamos do barco do esforço humano para o barco da obediência ao Rei. Você não performa para ser aceito; você já foi aceito pelo sangue do Cordeiro.",
       "Romanos 10:9 — “Se você confessar com a sua boca que Jesus é Senhor e crer em seu coração que Deus o ressuscitou dentre os mortos, será salvo.”",
       "A Oração de Entrega",
       "Senhor Jesus, eu reconheço que sou pecador e preciso do Teu perdão. Creio que Tu morreste por meus pecados e ressuscitaste para me dar vida eterna. Neste momento, eu abro meu coração e minha vida para Ti. Eu Te aceito como meu Senhor e Salvador. Eu Te peço que perdoe todos os meus pecados, limpes meu coração e faças de mim uma nova criatura.",
