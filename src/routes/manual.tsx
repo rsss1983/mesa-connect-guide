@@ -157,7 +157,7 @@ const FUNCOES: FuncaoInfo[] = [
     itens: [
       "Concluir a trilha de Onboarding: visão da casa (A Base Profética, Os 3 Pilares, Manifesto)",
       "Participar do Café com o Pastor",
-      "Integrar-se a um Grupo Familiar / Célula",
+      "Integrar-se a uma Mesa Familiar",
       "Escolher uma frente do Caminho do Peregrino (Cura Emocional, Cura Profissional ou Mulheres Posicionadas)",
     ],
     foco:
