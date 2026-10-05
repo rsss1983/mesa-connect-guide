@@ -37,7 +37,7 @@ const STEPS: Step[] = [
   {
     id: "manifesto",
     chapter: "Introdução",
-    title: "MESA CHURCH: IDENTIDADE E VISÃO",
+    title: "Visão da MESA CHURCH",
     subtitle: "Desacelere o passo. Ninguém senta à mesa correndo.",
     body: [
       "1. A Base Profética: O Chamado para a Mesa (Lucas 14)",
@@ -155,7 +155,7 @@ const FUNCOES: FuncaoInfo[] = [
     status:
       "Alguém que decidiu puxar a cadeira e assumir o seu lugar na MESA Church.",
     itens: [
-      "Concluir a trilha de Onboarding: visão da casa (A Base Profética, Os 3 Pilares, Manifesto)",
+      "Concluir a trilha de Onboarding: Visão da Mesa Church (A Base Profética, Os 3 Pilares, Manifesto)",
       "Participar do Café com o Pastor",
       "Integrar-se a uma Mesa Familiar",
       "Escolher uma frente do Caminho do Peregrino (Cura Emocional, Cura Profissional ou Mulheres Posicionadas)",
