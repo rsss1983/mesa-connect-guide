@@ -846,10 +846,10 @@ function TrilhasBlock({
     { label: "Empresário Cristão" },
     { label: "\u00a0Cura Profissional" },
   ];
-  const familiaOpts = ["Homem", "Mulher", "Filho"];
+  const familiaOpts = ["Homem", "Mulheres Posicionadas", "Filho"];
   const subOpts: Record<string, { label: string; href?: string }[]> = {
     Homem: [{ label: "Pai" }, { label: "Marido" }],
-    Mulher: [{ label: "Mãe" }, { label: "Esposa" }],
+    "Mulheres Posicionadas": [{ label: "Mãe" }, { label: "Esposa" }],
     Filho: [
       { label: "Criança", href: "https://mesa-guide-app.lovable.app" },
       { label: "Jovem", href: "https://mesa-guide-app.lovable.app" },
