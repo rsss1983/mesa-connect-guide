@@ -123,7 +123,7 @@ const STEPS: Step[] = [
   {
     id: "trilhas",
     chapter: "Capítulo 6",
-    title: "Trilhas de Discipulado",
+    title: "Caminho do Peregrino",
     subtitle: "Escolha a sua trilha e caminhe com propósito.",
     body: [
       "As trilhas de discipulado da MESA são caminhos práticos para amadurecer em áreas específicas da sua vida.",
