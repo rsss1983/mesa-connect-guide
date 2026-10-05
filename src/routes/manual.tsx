@@ -840,11 +840,11 @@ function TrilhasBlock({
   const trilhas: { label: string; href?: string }[] = [
     { label: "Família" },
     {
-      label: "Inteligência Relacional Bíblica",
+      label: "Cura Emocional",
       href: "https://mentesafesaudavel.lovable.app",
     },
     { label: "Empresário Cristão" },
-    { label: "Profissional" },
+    { label: "\u00a0Cura Profissional" },
   ];
   const familiaOpts = ["Homem", "Mulher", "Filho"];
   const subOpts: Record<string, { label: string; href?: string }[]> = {
