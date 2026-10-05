@@ -357,27 +357,70 @@ function Manual() {
               Seu lugar na Mesa
             </p>
             <div className="mt-3 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-              {FUNCOES.map((f) => {
+              {FUNCOES.map((f, i) => {
                 const ativa = funcao === f.nome;
+                const completo = (n: FuncaoInfo) =>
+                  n.itens.every((it) => funcaoChecks[`${n.nome}::${it}`]);
+                const liberado = FUNCOES.slice(0, i).every(completo);
+                const feito = completo(f);
                 return (
                   <button
                     key={f.nome}
                     type="button"
                     aria-pressed={ativa}
                     aria-expanded={ativa}
+                    disabled={!liberado}
+                    title={
+                      liberado
+                        ? undefined
+                        : `Conclua ${FUNCOES[i - 1].nome} para desbloquear`
+                    }
                     onClick={() => setFuncao(ativa ? null : f.nome)}
                     className={`inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition ${
-                      ativa
-                        ? "border-gold bg-gold text-primary-foreground"
-                        : "border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
+                      !liberado
+                        ? "cursor-not-allowed border-border bg-secondary/40 text-muted-foreground opacity-60"
+                        : ativa
+                          ? "border-gold bg-gold text-primary-foreground"
+                          : "border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
                     }`}
                   >
-                    <span aria-hidden>{f.icone}</span>
+                    <span aria-hidden>
+                      {!liberado ? "🔒" : feito ? "✓" : f.icone}
+                    </span>
                     {f.nome}
                   </button>
                 );
               })}
             </div>
+
+            {(() => {
+              const total = FUNCOES.reduce((s, f) => s + f.itens.length, 0);
+              const feitos = FUNCOES.reduce(
+                (s, f) =>
+                  s +
+                  f.itens.filter((it) => funcaoChecks[`${f.nome}::${it}`])
+                    .length,
+                0,
+              );
+              const pct = Math.round((feitos / total) * 100);
+              return (
+                <div className="mx-auto mt-5 max-w-md">
+                  <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
+                    <span>Caminho do Crescimento</span>
+                    <span className="text-gold">{pct}%</span>
+                  </div>
+                  <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
+                    <div
+                      className="h-full bg-gradient-to-r from-ember via-gold to-gold-soft transition-all duration-700"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Conclua todos os passos de uma etapa para liberar a próxima.
+                  </p>
+                </div>
+              );
+            })()}
 
             {funcaoAtiva && (
               <div className="mt-5 rounded-2xl border border-gold/25 bg-card/60 p-5 text-left sm:p-6">
