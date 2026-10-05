@@ -37,7 +37,7 @@ const STEPS: Step[] = [
   {
     id: "manifesto",
     chapter: "Introdução",
-    title: "MESA CHURCH: IDENTIDADE E VISÃO",
+    title: "Visão da MESA CHURCH",
     subtitle: "Desacelere o passo. Ninguém senta à mesa correndo.",
     body: [
       "1. A Base Profética: O Chamado para a Mesa (Lucas 14)",
