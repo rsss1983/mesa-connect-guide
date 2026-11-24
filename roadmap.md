@@ -1,7 +1,8 @@
-# Entrada simplificada do Mesa Connect
+# Lote 2 — acolhimento e formação no manual
 
-- [x] Atualizar hero e menu compacto.
-- [x] Reunir encontros presencial e online em `#encontros`, com orientação para o Zoom e sem contador.
-- [x] Reposicionar Conheça a Mesa e Série Amigo Teófilo, preservando os dois links da série.
-- [x] Ajustar o texto de atendimento sem mudar contato, foto ou contribuição.
-- [x] Validar prévia em 390x844 e 1366x768, conferir tipos/build e registrar o commit.
+- [ ] Atualizar o hero e acrescentar a apresentação dos três pilares.
+- [ ] Organizar as seis leituras recolhidas, com progresso apenas de leitura e acesso livre.
+- [ ] Reescrever somente a introdução e corrigir o rótulo final para Capítulo 5.
+- [ ] Mover funções e checklists para uma seção secundária de formação, sem bloqueio sequencial ou ranking.
+- [ ] Proteger os dados existentes com guardas de carregamento e preservar IDs, chaves e links.
+- [ ] Validar build, navegação, teclado, persistência isolada e layouts móvel/desktop; registrar commit sem publicar.

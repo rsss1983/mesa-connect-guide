@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import mesaLogo from "@/assets/mesa-logo.jpeg";
 
 export const Route = createFileRoute("/manual")({
   head: () => ({
     meta: [
-      { title: "Manual de Integração — MESA Church" },
+      { title: "Conheça a Mesa — MESA Church" },
       {
         name: "description",
         content:
-          "Puxe a cadeira. Manual de integração da MESA Church — Igreja, Família e Propósito.",
+          "Conheça nossa história, nossa fé e como caminhamos juntos. Você pode começar por aqui, no seu ritmo.",
       },
-      { property: "og:title", content: "Manual de Integração — MESA Church" },
+      { property: "og:title", content: "Conheça a Mesa — MESA Church" },
       {
         property: "og:description",
         content:
-          "Caminhando para A MESA: salvação, batismo, ceia, servir e trilhas de discipulado.",
+          "Conheça a Mesa Church, explore as leituras no seu ritmo e consulte a formação e o serviço.",
       },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -40,20 +40,10 @@ const STEPS: Step[] = [
     title: "Visão da MESA CHURCH",
     subtitle: "Desacelere o passo. Ninguém senta à mesa correndo.",
     body: [
-      "1. A Base Profética: O Chamado para a Mesa (Lucas 14)",
-      "Nossa visão nasce no coração de Jesus em Lucas 14. Quando o convite para a grande ceia é feito, os convidados originais apresentam desculpas baseadas em seus bens, seus bois e seus casamentos. Mas o Mestre ordena: \"Sai pelos caminhos e valados, e força-os a entrar, para que a minha casa se encha\" (Lc 14:23).",
-      "A MESA Church existe porque entendemos que o \"lugar à mesa\" não é para os que se sentem autossuficientes, mas para os \"pobres, aleijados, cegos e coxos\" — aqueles que, em São Paulo, reconhecem a sua falência e necessidade de Graça. Nós somos a igreja que não aceita o \"não\" da conveniência; nós forçamos o convite do Reino para que a nossa casa se encha de pessoas sendo curadas.",
-      "2. Os Três Pilares do DNA",
-      "I. Transparência Relacional",
-      "Acreditamos que a cura acontece quando as máscaras caem. Em uma metrópole de alta performance e isolamento, a MESA é o refúgio onde a vulnerabilidade é o caminho para a conexão real. Não temos espaço para o fingimento religioso. Aqui, olhamos nos olhos, confessamos nossas lutas e combatemos a solidão através do vínculo genuíno. Ser conhecido é o primeiro passo para ser amado e curado.",
-      "II. Discipulado Vivo",
-      "O discipulado não é um curso; é a vida dividida no dia a dia. Combatemos a cultura do \"modo plateia\" — onde o cristão apenas assiste a um culto. Na MESA, o convite é para caminhar lado a lado, carregar fardos e imitar o ritmo de Jesus. Nosso discipulado acontece no partir do pão, na mentoria, no aconselhamento e na parceria de aliança, onde cada um assume seu lugar no corpo para cumprir a missão.",
-      "III. Vida no Reino",
-      "Viver o Reino é a arte da dependência radical. É abandonar a autossuficiência do próprio braço para se submeter ao governo de Jesus em todas as áreas — trabalho, família e emoções. Entendemos que a nossa produtividade não define o nosso valor. Somos um povo que governa o seu mundo interno pela razão e pela Palavra, protegendo o nosso foco para o \"Sonho Grande\" e vivendo de forma que o Reino de Deus se torne visível nas nossas escolhas cotidianas.",
-      "3. Manifesto da Casa",
-      "\"Puxe a sua cadeira e assuma o seu lugar.\"",
-      "Não somos uma plateia; somos parceiros de aliança. Na MESA Church, o protocolo é a transparência, o método é o discipulado e o alvo é o Reino. Se você está cansado de carregar fardos que não são seus e deseja viver um propósito que vai além do sucesso humano, esta casa é o seu destino.",
-      "Porque na MESA, ainda há lugar.",
+      "Em Lucas 14, Jesus apresenta um convite que alcança quem muitas vezes fica de fora. Na Mesa, queremos acolher com respeito e oferecer companhia na caminhada da fé.",
+      "Lucas 14:23 — \"Sai pelos caminhos e valados, e força-os a entrar, para que a minha casa se encha\".",
+      "Nossa caminhada acontece na convivência, na oração, no aprendizado da Palavra e no serviço. Você pode conhecer a comunidade e conversar com a liderança no seu tempo.",
+      "Puxe a cadeira. Ainda há lugar para você.",
     ],
   },
   {
@@ -122,7 +112,7 @@ const STEPS: Step[] = [
   },
   {
     id: "trilhas",
-    chapter: "Capítulo 6",
+    chapter: "Capítulo 5",
     title: "Caminho do Peregrino",
     subtitle: "Escolha a sua trilha e caminhe com propósito.",
     body: [
@@ -136,6 +126,8 @@ const STEPS: Step[] = [
 const STORAGE_KEY = "mesa.manual.completed.v1";
 const FUNCAO_KEY = "mesa.funcao.v1";
 const FUNCAO_CHECK_KEY = "mesa.funcao.checklist.v1";
+const FOCUS_STYLES =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 type FuncaoInfo = {
   nome: string;
@@ -238,74 +230,131 @@ const FUNCOES: FuncaoInfo[] = [
 
 function Manual() {
   const [completed, setCompleted] = useState<Record<string, boolean>>({});
+  const [completedCarregado, setCompletedCarregado] = useState(false);
+  const [completedPodeSalvar, setCompletedPodeSalvar] = useState(true);
   const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
+    let podeSalvar = true;
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setCompleted(JSON.parse(raw));
-    } catch {}
+      if (raw) {
+        const saved: unknown = JSON.parse(raw);
+        if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+          setCompleted(saved as Record<string, boolean>);
+        } else {
+          podeSalvar = false;
+        }
+      }
+    } catch {
+      podeSalvar = false;
+    }
+    setCompletedPodeSalvar(podeSalvar);
+    setCompletedCarregado(true);
   }, []);
 
   useEffect(() => {
+    if (!completedCarregado || !completedPodeSalvar) return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
     } catch {}
-  }, [completed]);
+  }, [completed, completedCarregado, completedPodeSalvar]);
 
-  const progress = useMemo(() => {
-    const done = STEPS.filter((s) => completed[s.id]).length;
-    return Math.round((done / STEPS.length) * 100);
-  }, [completed]);
+  const leiturasRealizadas = STEPS.filter((s) => completed[s.id]).length;
 
   const toggle = (id: string) =>
     setCompleted((c) => ({ ...c, [id]: !c[id] }));
 
   const [aceito, setAceito] = useState(false);
   const [aceitoCarregado, setAceitoCarregado] = useState(false);
+  const [aceitoPodeSalvar, setAceitoPodeSalvar] = useState(true);
 
   const [trilha, setTrilha] = useState<string | null>(null);
   const [familiaSub, setFamiliaSub] = useState<string | null>(null);
 
   const [funcao, setFuncao] = useState<string | null>(null);
   const [funcaoCarregada, setFuncaoCarregada] = useState(false);
+  const [funcaoPodeSalvar, setFuncaoPodeSalvar] = useState(true);
+  const [funcaoChecksPodeSalvar, setFuncaoChecksPodeSalvar] = useState(true);
   const [funcaoChecks, setFuncaoChecks] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
+    let podeSalvarFuncao = true;
     try {
       const saved = localStorage.getItem(FUNCAO_KEY);
-      if (saved && FUNCOES.some((f) => f.nome === saved)) {
-        setFuncao(saved);
+      if (saved) {
+        if (FUNCOES.some((f) => f.nome === saved)) {
+          setFuncao(saved);
+        } else {
+          podeSalvarFuncao = false;
+        }
       }
+    } catch {
+      podeSalvarFuncao = false;
+    }
+
+    let podeSalvarChecks = true;
+    try {
       const rawChecks = localStorage.getItem(FUNCAO_CHECK_KEY);
-      if (rawChecks) setFuncaoChecks(JSON.parse(rawChecks));
-    } catch {}
+      if (rawChecks) {
+        const savedChecks: unknown = JSON.parse(rawChecks);
+        if (
+          savedChecks &&
+          typeof savedChecks === "object" &&
+          !Array.isArray(savedChecks)
+        ) {
+          setFuncaoChecks(savedChecks as Record<string, boolean>);
+        } else {
+          podeSalvarChecks = false;
+        }
+      }
+    } catch {
+      podeSalvarChecks = false;
+    }
+
+    setFuncaoPodeSalvar(podeSalvarFuncao);
+    setFuncaoChecksPodeSalvar(podeSalvarChecks);
     setFuncaoCarregada(true);
   }, []);
 
   useEffect(() => {
-    if (!funcaoCarregada) return;
+    if (!funcaoCarregada || !funcaoPodeSalvar) return;
     try {
       localStorage.setItem(FUNCAO_KEY, funcao ?? "");
+    } catch {}
+  }, [funcao, funcaoCarregada, funcaoPodeSalvar]);
+
+  useEffect(() => {
+    if (!funcaoCarregada || !funcaoChecksPodeSalvar) return;
+    try {
       localStorage.setItem(FUNCAO_CHECK_KEY, JSON.stringify(funcaoChecks));
     } catch {}
-  }, [funcao, funcaoChecks, funcaoCarregada]);
+  }, [funcaoChecks, funcaoCarregada, funcaoChecksPodeSalvar]);
 
   const funcaoAtiva = FUNCOES.find((f) => f.nome === funcao) ?? null;
 
   useEffect(() => {
+    let podeSalvar = true;
     try {
-      setAceito(localStorage.getItem("mesa.salvacao.aceito") === "true");
-    } catch {}
+      const saved = localStorage.getItem("mesa.salvacao.aceito");
+      if (saved === "true" || saved === "false") {
+        setAceito(saved === "true");
+      } else if (saved !== null) {
+        podeSalvar = false;
+      }
+    } catch {
+      podeSalvar = false;
+    }
+    setAceitoPodeSalvar(podeSalvar);
     setAceitoCarregado(true);
   }, []);
 
   useEffect(() => {
-    if (!aceitoCarregado) return;
+    if (!aceitoCarregado || !aceitoPodeSalvar) return;
     try {
       localStorage.setItem("mesa.salvacao.aceito", String(aceito));
     } catch {}
-  }, [aceito, aceitoCarregado]);
+  }, [aceito, aceitoCarregado, aceitoPodeSalvar]);
 
   return (
     <div className="min-h-screen">
@@ -314,7 +363,7 @@ function Manual() {
         <div className="relative mx-auto max-w-5xl px-6 pt-16 pb-12 text-center">
           <Link
             to="/"
-            className="absolute top-4 left-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-2 text-sm font-medium text-gold transition hover:bg-gold/10"
+            className={`absolute left-6 top-4 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-2 text-sm font-medium text-gold transition hover:bg-gold/10 ${FOCUS_STYLES}`}
           >
             <span aria-hidden>←</span> Voltar
           </Link>
@@ -328,207 +377,103 @@ function Manual() {
           <p className="text-xs uppercase tracking-[0.4em] text-gold-soft/80">
             MESA Church
           </p>
-          <h1 className="mt-4 font-serif text-5xl sm:text-6xl md:text-7xl font-medium text-glow">
-            O seu lugar à Mesa
+          <h1 className="mt-4 font-serif text-5xl font-medium text-glow sm:text-6xl md:text-7xl">
+            Conheça a Mesa
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Caminhando para A MESA — Igreja, Família e Propósito. Puxe a
-            cadeira, deixe as máscaras caírem, e caminhe pelos passos que
-            preparamos para você.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Conheça nossa história, nossa fé e como caminhamos juntos. Você
+            pode começar por aqui, no seu ritmo.
           </p>
-
-          {/* Progress */}
-          <div className="mx-auto mt-10 max-w-md">
-            <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
-              <span>Sua Jornada</span>
-              <span className="text-gold">{progress}%</span>
-            </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-              <div
-                className="h-full bg-gradient-to-r from-ember via-gold to-gold-soft transition-all duration-700"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Você pode visitar nossos encontros sem concluir estas leituras.
+            Cada pessoa compartilha sua história no seu tempo.
+          </p>
+          <div className="mx-auto mt-8 flex max-w-lg flex-col items-stretch justify-center gap-3 sm:flex-row">
+            <Link
+              to="/"
+              hash="encontros"
+              className={`inline-flex items-center justify-center rounded-full bg-gold px-7 py-3 text-center text-sm font-semibold text-primary-foreground transition hover:bg-gold-soft ${FOCUS_STYLES}`}
+            >
+              Ver os encontros
+            </Link>
+            <a
+              href="#leituras"
+              className={`inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/5 px-7 py-3 text-center text-sm font-semibold text-gold transition hover:bg-gold/10 ${FOCUS_STYLES}`}
+            >
+              Explorar as leituras
+            </a>
           </div>
 
-          {/* Funções na Mesa */}
-          <div className="mx-auto mt-8 max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
-              Seu lugar na Mesa
-            </p>
-            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-              {FUNCOES.map((f, i) => {
-                const ativa = funcao === f.nome;
-                const completo = (n: FuncaoInfo) =>
-                  n.itens.every((it) => funcaoChecks[`${n.nome}::${it}`]);
-                const liberado = FUNCOES.slice(0, i).every(completo);
-                const feito = completo(f);
-                return (
-                  <button
-                    key={f.nome}
-                    type="button"
-                    aria-pressed={ativa}
-                    aria-expanded={ativa}
-                    disabled={!liberado}
-                    title={
-                      liberado
-                        ? undefined
-                        : `Conclua ${FUNCOES[i - 1].nome} para desbloquear`
-                    }
-                    onClick={() => setFuncao(ativa ? null : f.nome)}
-                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition ${
-                      !liberado
-                        ? "cursor-not-allowed border-border bg-secondary/40 text-muted-foreground opacity-60"
-                        : ativa
-                          ? "border-gold bg-gold text-primary-foreground"
-                          : "border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
-                    }`}
-                  >
-                    <span aria-hidden>
-                      {!liberado ? "🔒" : feito ? "✓" : f.icone}
-                    </span>
-                    {f.nome}
-                  </button>
-                );
-              })}
-            </div>
-
-            {(() => {
-              const total = FUNCOES.reduce((s, f) => s + f.itens.length, 0);
-              const feitos = FUNCOES.reduce(
-                (s, f) =>
-                  s +
-                  f.itens.filter((it) => funcaoChecks[`${f.nome}::${it}`])
-                    .length,
-                0,
-              );
-              const pct = Math.round((feitos / total) * 100);
-              return (
-                <div className="mx-auto mt-5 max-w-md">
-                  <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
-                    <span>Caminho do Crescimento</span>
-                    <span className="text-gold">{pct}%</span>
-                  </div>
-                  <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-                    <div
-                      className="h-full bg-gradient-to-r from-ember via-gold to-gold-soft transition-all duration-700"
-                      style={{ width: `${pct}%` }}
-                    />
-                  </div>
-                  <p className="mt-2 text-xs text-muted-foreground">
-                    Conclua todos os passos de uma etapa para liberar a próxima.
-                  </p>
-                </div>
-              );
-            })()}
-
-            {funcaoAtiva && (
-              <div className="mt-5 rounded-2xl border border-gold/25 bg-card/60 p-5 text-left sm:p-6">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gold-soft/80">
-                  {funcaoAtiva.icone} {funcaoAtiva.nome}
-                </p>
-                <h3 className="mt-1 font-serif text-2xl text-glow">
-                  {funcaoAtiva.titulo}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {funcaoAtiva.status}
-                </p>
-                {funcaoAtiva.requisito && (
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-gold">Requisito: </span>
-                    {funcaoAtiva.requisito}
-                  </p>
-                )}
-
-                {(() => {
-                  const feitos = funcaoAtiva.itens.filter(
-                    (it) => funcaoChecks[`${funcaoAtiva.nome}::${it}`],
-                  ).length;
-                  const pct = Math.round(
-                    (feitos / funcaoAtiva.itens.length) * 100,
-                  );
-                  return (
-                    <div className="mt-5">
-                      <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
-                        <span>Checklist</span>
-                        <span className="text-gold">
-                          {feitos}/{funcaoAtiva.itens.length}
-                        </span>
-                      </div>
-                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-                        <div
-                          className="h-full bg-gradient-to-r from-ember via-gold to-gold-soft transition-all duration-500"
-                          style={{ width: `${pct}%` }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })()}
-
-                <ul className="mt-4 space-y-2">
-                  {funcaoAtiva.itens.map((item) => {
-                    const chave = `${funcaoAtiva.nome}::${item}`;
-                    const marcado = !!funcaoChecks[chave];
-                    return (
-                      <li key={chave}>
-                        <button
-                          type="button"
-                          aria-pressed={marcado}
-                          onClick={() =>
-                            setFuncaoChecks((c) => ({
-                              ...c,
-                              [chave]: !c[chave],
-                            }))
-                          }
-                          className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left text-sm transition ${
-                            marcado
-                              ? "border-gold/50 bg-gold/10 text-foreground"
-                              : "border-border bg-background/40 text-muted-foreground hover:border-gold/40"
-                          }`}
-                        >
-                          <span
-                            aria-hidden
-                            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-[11px] ${
-                              marcado
-                                ? "border-gold bg-gold text-primary-foreground"
-                                : "border-gold/40"
-                            }`}
-                          >
-                            {marcado ? "✓" : ""}
-                          </span>
-                          <span className={marcado ? "text-foreground" : ""}>
-                            {item}
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-gold">Foco espiritual: </span>
-                  {funcaoAtiva.foco}
-                </p>
-              </div>
-            )}
-          </div>
         </div>
       </header>
 
-      {/* Steps */}
       <main className="mx-auto max-w-3xl px-6 pb-20">
-        <div className="mb-8 flex items-center gap-3">
-          <span className="h-px flex-1 bg-border" />
-          <h2 className="font-serif text-sm uppercase tracking-[0.35em] text-gold-soft">
-            Seus Passos
+        <section
+          aria-labelledby="pilares-title"
+          className="border-y border-border/60 py-10"
+        >
+          <h2
+            id="pilares-title"
+            className="text-center font-serif text-sm uppercase tracking-[0.35em] text-gold-soft"
+          >
+            Nossa forma de caminhar
           </h2>
-          <span className="h-px flex-1 bg-border" />
-        </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <article className="rounded-2xl border border-border bg-card/50 p-5">
+              <h3 className="font-serif text-xl text-gold">
+                Transparência Relacional
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Construímos relações com sinceridade e respeito ao tempo de cada
+                pessoa.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card/50 p-5">
+              <h3 className="font-serif text-xl text-gold">Discipulado Vivo</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Aprendemos a seguir Jesus na convivência e nas escolhas do dia a
+                dia.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card/50 p-5">
+              <h3 className="font-serif text-xl text-gold">Vida no Reino</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Buscamos viver a fé no trabalho, na família e no cuidado com as
+                pessoas.
+              </p>
+            </article>
+          </div>
+        </section>
 
-        <ol className="space-y-4">
+        <section id="leituras" aria-labelledby="leituras-title" className="mt-14 scroll-mt-6">
+          <h2
+            id="leituras-title"
+            className="text-center font-serif text-sm uppercase tracking-[0.3em] text-gold-soft"
+          >
+            Leituras para conhecer e caminhar
+          </h2>
+          <div className="mt-6 flex items-center justify-between gap-4 text-xs uppercase tracking-widest text-muted-foreground">
+            <span>Leituras realizadas</span>
+            <span className="shrink-0 text-gold">
+              {leiturasRealizadas} de {STEPS.length}
+            </span>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Este progresso fica salvo neste navegador e não é um cadastro de
+            membro ou reconhecimento de liderança.
+          </p>
+          {!completedPodeSalvar && (
+            <p role="status" className="mt-3 rounded-xl border border-gold/30 bg-gold/5 p-3 text-sm leading-relaxed text-muted-foreground">
+              Não foi possível ler o progresso anterior. Ele não foi apagado;
+              novas marcações de leitura não serão salvas neste navegador.
+            </p>
+          )}
+
+        <ol className="mt-6 space-y-4">
           {STEPS.map((step, i) => {
             const open = openId === step.id;
             const done = !!completed[step.id];
+            const nextStep = STEPS[i + 1];
             return (
               <li
                 key={step.id}
@@ -537,8 +482,12 @@ function Manual() {
                 }`}
               >
                 <button
-                  onClick={() => setOpenId(open ? "" : step.id)}
-                  className="flex w-full items-center gap-4 px-5 py-5 text-left"
+                  type="button"
+                  id={`botao-${step.id}`}
+                  aria-expanded={open}
+                  aria-controls={`conteudo-${step.id}`}
+                  onClick={() => setOpenId(open ? null : step.id)}
+                  className={`grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl px-4 py-5 text-left sm:gap-4 sm:px-5 ${FOCUS_STYLES}`}
                 >
                   <span
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border font-serif text-lg transition ${
@@ -549,7 +498,7 @@ function Manual() {
                   >
                     {done ? "✓" : i + 1}
                   </span>
-                  <span className="flex-1">
+                  <span className="min-w-0">
                     <span className="block text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                       {step.chapter}
                     </span>
@@ -571,7 +520,12 @@ function Manual() {
                 </button>
 
                 {open && (
-                  <div className="border-t border-border/60 px-5 pb-6 pt-5 sm:px-16">
+                  <div
+                    id={`conteudo-${step.id}`}
+                    role="region"
+                    aria-labelledby={`botao-${step.id}`}
+                    className="border-t border-border/60 px-5 pb-6 pt-5 sm:px-16"
+                  >
                     <div className="space-y-4 text-[15px] leading-relaxed text-foreground/90">
                       {step.body.map((p, idx) => (
                         <p key={idx}>{p}</p>
@@ -692,10 +646,11 @@ function Manual() {
                       >
                         {done ? "Desmarcar" : "Marcar como concluído"}
                       </button>
-                      {i < STEPS.length - 1 && (
+                      {nextStep && (
                         <button
-                          onClick={() => setOpenId(STEPS[i + 1].id)}
-                          className="text-sm text-gold-soft hover:text-gold"
+                          type="button"
+                          onClick={() => setOpenId(nextStep.id)}
+                          className={`rounded-md text-sm text-gold-soft hover:text-gold ${FOCUS_STYLES}`}
                         >
                           Próximo passo →
                         </button>
@@ -707,6 +662,156 @@ function Manual() {
             );
           })}
         </ol>
+        </section>
+
+        <section
+          aria-labelledby="formacao-title"
+          className="mt-16 border-t border-gold/25 pt-12"
+        >
+          <h2
+            id="formacao-title"
+            className="text-center font-serif text-sm uppercase tracking-[0.35em] text-gold-soft"
+          >
+            Formação e serviço
+          </h2>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            A leitura ajuda na formação. O reconhecimento para servir em
+            funções de liderança envolve acompanhamento pastoral, caráter,
+            experiência e discernimento da comunidade. Concluir etapas de
+            leitura não concede cargos.
+          </p>
+
+          <details className="mt-6 rounded-2xl border border-border bg-card/40 p-5 sm:p-6">
+            <summary
+              className={`cursor-pointer list-none rounded-md font-serif text-xl text-gold [&::-webkit-details-marker]:hidden ${FOCUS_STYLES}`}
+            >
+              Conhecer a formação e o serviço
+            </summary>
+            <div className="mt-6 border-t border-border/60 pt-6">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Consulte os papéis e seus critérios como conteúdo de formação,
+                sem ordem de ranking. Todos estão disponíveis para leitura.
+              </p>
+
+              {(!funcaoPodeSalvar || !funcaoChecksPodeSalvar) && (
+                <p role="status" className="mt-4 rounded-xl border border-gold/30 bg-gold/5 p-3 text-sm leading-relaxed text-muted-foreground">
+                  Algumas anotações anteriores não puderam ser lidas e não foram
+                  apagadas. Novas alterações nesses dados não serão salvas neste
+                  navegador.
+                </p>
+              )}
+
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                {FUNCOES.map((f) => {
+                  const ativa = funcao === f.nome;
+                  const painelId = `funcao-${f.nome.toLowerCase()}`;
+                  return (
+                    <button
+                      key={f.nome}
+                      type="button"
+                      aria-pressed={ativa}
+                      aria-expanded={ativa}
+                      aria-controls={painelId}
+                      onClick={() => setFuncao(ativa ? null : f.nome)}
+                      className={`inline-flex max-w-full items-center gap-2 rounded-full border px-5 py-2 text-sm font-medium transition ${FOCUS_STYLES} ${
+                        ativa
+                          ? "border-gold bg-gold text-primary-foreground"
+                          : "border-gold/40 bg-gold/5 text-gold hover:bg-gold/10"
+                      }`}
+                    >
+                      <span aria-hidden>{f.icone}</span>
+                      {f.nome}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {funcaoAtiva && (
+                <div
+                  id={`funcao-${funcaoAtiva.nome.toLowerCase()}`}
+                  role="region"
+                  aria-label={`Formação: ${funcaoAtiva.nome}`}
+                  className="mt-5 rounded-2xl border border-gold/25 bg-card/60 p-5 text-left sm:p-6"
+                >
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-gold-soft/80">
+                    {funcaoAtiva.icone} {funcaoAtiva.nome}
+                  </p>
+                  <h3 className="mt-1 font-serif text-2xl text-glow">
+                    {funcaoAtiva.titulo}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {funcaoAtiva.status}
+                  </p>
+                  {funcaoAtiva.requisito && (
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      <span className="text-gold">Requisito: </span>
+                      {funcaoAtiva.requisito}
+                    </p>
+                  )}
+
+                  <div className="mt-5 flex items-center justify-between gap-4 text-xs uppercase tracking-widest text-muted-foreground">
+                    <span>Anotações pessoais</span>
+                    <span className="shrink-0 text-gold">
+                      {
+                        funcaoAtiva.itens.filter(
+                          (it) => funcaoChecks[`${funcaoAtiva.nome}::${it}`],
+                        ).length
+                      }
+                      /{funcaoAtiva.itens.length}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    Estas marcações são anotações pessoais e não representam
+                    nomeação ou reconhecimento para uma função.
+                  </p>
+
+                  <ul className="mt-4 space-y-2">
+                    {funcaoAtiva.itens.map((item) => {
+                      const chave = `${funcaoAtiva.nome}::${item}`;
+                      const marcado = !!funcaoChecks[chave];
+                      return (
+                        <li key={chave}>
+                          <button
+                            type="button"
+                            aria-pressed={marcado}
+                            onClick={() =>
+                              setFuncaoChecks((c) => ({
+                                ...c,
+                                [chave]: !c[chave],
+                              }))
+                            }
+                            className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left text-sm transition ${FOCUS_STYLES} ${
+                              marcado
+                                ? "border-gold/50 bg-gold/10 text-foreground"
+                                : "border-border bg-background/40 text-muted-foreground hover:border-gold/40"
+                            }`}
+                          >
+                            <span
+                              aria-hidden
+                              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-[11px] ${
+                                marcado
+                                  ? "border-gold bg-gold text-primary-foreground"
+                                  : "border-gold/40"
+                              }`}
+                            >
+                              {marcado ? "✓" : ""}
+                            </span>
+                            <span className="min-w-0">{item}</span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    <span className="text-gold">Foco espiritual: </span>
+                    {funcaoAtiva.foco}
+                  </p>
+                </div>
+              )}
+            </div>
+          </details>
+        </section>
 
         {/* Hub */}
         <section className="mt-16">
